@@ -1,0 +1,253 @@
+
+　　／■　■‾‾■　■‾‾■　■＼　＿　■　μITRON 3.0 Real-Time Multitasking Monitor
+　／　■＿＿■　■＿■　■＿＿■　＼‾　■　Copyright (c) Mineyuki Kimoto 1994
+
+                             Version 1.01.00
+
+These files are the kernel of ASURA-I:
+
+a--w lh5:1M 0FB4    52289    13046  24.9% 94-09-18 17:08:22 asura_i.asm
+a--w lh5:1M 7F10     8849     2609  29.5% 94-09-18 17:50:56 asura_i.sys
+
+and these the include files for development:
+
+a--w lh5:1M CC81     8985     2527  28.1% 94-07-18 11:04:54 asura_i.inc
+
+This document is about the ASURA-I kernel.
+
+
+
+ASURA-I is a real-time multitasking monitor that complies with μITRON
+3.0. The biggest feature of this system is that it resides as a device
+driver on MS-DOS. In other words, ASURA-I system calls can be used not
+only from regular applications, but also from resident programs and other
+device drivers.
+
+There are two ways to make ASURA-I resident: config.sys and the adddrv
+command. If you install it in config.sys, it will automatically become
+resident at boot, but it has the disadvantage that it continues to occupy
+memory and cannot be reinitialized. Adding the following line to
+config.sys will make it automatically resident from the next startup
+(if necessary, please also write the path to the directory where
+asura_i.sys exists).
+
+device=asura_i.sys
+
+To cancel automatic residence of ASURA-I, delete the line from config.sys.
+
+If you install it with the adddrv command, you will need to install it
+every time you reboot, but the advantage is that you can cancel the
+residency when it is unnecessary, and you can reinitialize it by canceling
+the residency and adding it again during development. To install it with
+adddrv, first create a text file called asura_i.dev and put the above
+line in it.
+
+adddrv asura_i.dev
+
+Next, ASURA-I will be installed. To cancel resident status, execute the
+deldrv command.
+
+
+
+The system calls currently supported by ASURA-I (version 1.01.00) are the
+following:
+
+Task management
+    cre_tsk　del_tsk sta_tsk　ext_tsk　exd_tsk　ter_tsk
+    dis_dsp　ena_dsp
+    chg_pri　rot_rdq
+    get_tid　ref_tsk
+    rel_wai
+
+Task-dependent synchronization
+    slp_tsk　wup_tsk　can_wup
+    sus_tsk　rsm_tsk frsm_tsk
+
+Synchronization and communication
+    cre_sem　del_sem　sig_sem　wai_sem preq_sem  ref_sem
+    cre_flg　del_flg　clr_flg　set_flg　wai_flg　pol_flg  ref_flg
+    cre_mbx  del_mbx  snd_msg  rcv_msg prcv_msg  ref_mbx
+
+Interrupt management
+    def_int (loc_cpu　unl_cpu  ret_int)
+
+System management
+    get_ver
+
+The system calls are explained in the μITRON 3.0 Standard Handbook and
+the attached ASURA_I.INC file. Here I will mainly explain the points that
+differ from the specifications, and implementation-dependent points.
+
+　　・How to invoke a system call
+
+As mentioned at the beginning of ASURA_I.INC, put the function number in
+the AX register and other parameters in the appropriate registers, and
+issue a system call with int 62h. The interrupt disabled/enabled state is
+maintained even during system call execution.
+
+However, loc_cpu, unl_cpu, and ret_int have special implementations,
+so please refer to ASURA_I.INC.
+
+　　・About the TA_HLNG attribute of cre_tsk
+
+When the TA_HLNG attribute is specified in the cre_tsk system call, the
+initial value is set assuming that the task is written in C language.
+
+For the TA_ASM attribute, ASURA-I's internal stack area (512 bytes per
+task) is used. The initial value of the segment register is CS=DS=ES,
+which is equivalent to starting a com-format executable file.
+
+For the TA_HLNG attribute, the stack allocated in the area specified by
+stack is used. By allocating a stack area in advance on the C language
+application side and setting the end of the stack to stack, ASURA-I sets
+the segment register to DS=ES=SS. In this case, the stack area reserved
+within ASURA-I for that task will not be used at all.
+
+In either case, there is no problem in changing SS:SP on the application
+side.
+
+　　・About the ref_??? system calls
+
+The ref_tsk, ref_sem, ref_flg, and ref_mbx system calls have the
+following differences.
+
+First, it can receive a parameter called unuid (un-use ID), which
+indicates an ID that has not yet been used within each object type
+(task, semaphore, event flag, mailbox). Using this can prevent ID
+conflicts between multiple resident programs.
+
+As concrete use of the trick, call ref_??? for ID=1, if it returns
+E_NOEXS, ID=1 is free, while if it returns E_OK, use unuid. For tasks,
+you can directly call ref_tsk with ID=0. Note that if all IDs are
+exhausted, unuid will be 0.
+
+Next, about ref_mbx, since it is difficult to pass NADR (no message) by
+address on an 86-series CPU, msgcnt is prepared to represent the number
+of incoming messages, and the message body is stored at the end. It also
+gives the number of free message queues for the entire mailbox to mbxfre.
+
+
+
+Differences from the ITRON specification.
+
+　◆Specification◆
+
+　・task
+　　　tskid range ：１〜６３　（System tasks are not supported）
+　　　prioruty    ：１〜３１
+　　　wupcnt (max)：２５４
+　　　suscnt (max)：２５５
+　　　States　    ：run. ready, wait, suspend, wait-suspend, dormant,
+　　　　　　　　　　 no-exist
+　　　Stack Size  ：５１２固定 fixed（ＡＳＵＲＡ−ＩSecured when resident）
+
+　・semaphore
+　　　semid range ：１〜３１　（System semaphores are not supported）
+　　　semcnt (max)：２５５固定
+　　　isemcnt 　　：Can be set at generation time
+　　　attributes  ：TA_TFIFO only
+
+　・event flag
+　　　flgid range ：１〜３１　（System event flags not supported）
+　　　bit width   ：Fixed at 16 bits (DI register)
+　　　iflgptn 　　：Can be set at generation time
+　　　attributes  ：TA_WSGL／TA_WMUL Can be set at generation time
+　　　wait modes  ：TWF_ANDW／TWF_ORW・TWF_CLR Can be set
+
+　・mailbox
+　　　mbxid range ：１〜３１　（System mailbox not supported）
+　　　attributes  ：TA_TFIFO・TA_MFIFO only
+      Packet format  : ES:SI is passed as is
+      Buffer format  : ring buffer
+      Buffer capacity: 64 messages across all mailboxes
+
+
+　◆Specifications/Interrupts◆
+
+　Interrupts have an unusual implementation.
+
+First, the interrupt handler uses the task's stack. Multiple interrupts
+are not supported. ret_int is a separate vector of interrupts, but may be
+terminated by iret if the task is not being switched within the interrupt
+handler.
+
+Since ASURA-I considers the state in which interrupts are disabled by
+tasks and the state in which interrupt handlers are executed to
+be equivalent, disabling interrupts also disables dispatching at the
+same time. Therefore, loc_cpu and unl_cpu are implemented as cli and
+sti/ena_dsp respectively, using macros. ena_dsp is used to forcibly
+dispatch, so it is unnecessary unless system calls that switch tasks
+are issued.
+
+This allows cli (interrupt disabled) to sti (interrupt allowed) to be
+placed in dis_dsp to ena_dsp, making it easier to migrate from
+conventional programs.
+
+However, while this implementation reduces the overhead of
+disabling/allowing interrupts, it also imposes some limitations on
+implementation. This problem can be avoided by implementing loc_cpu and
+unl_cpu as system calls, but this is the implementation we chose at this
+time.
+
+　◆Implementation-defined features◆
+
+First, the interrupt relationship mentioned above is one of its features.
+Another major feature is the handling of suspended tasks.
+
+Generally, a task in the suspended state is removed from the ready queue
+and returned to the ready queue when the task is resumed, but in this
+case there is a possibility that the ready queue state will not be
+restored to the state before the suspend state.
+
+Therefore, ASURA-I leaves suspended tasks in the ready queue and skips
+them when switching tasks. Although it is undeniable that the speed has
+decreased, I still think that I have secured a certain level of speed.
+
+
+　◆Implementation limitations◆
+
+　・ter_tsk cannot always be executed from an interrupt handler (if the
+    given task is running, it will return E_OBJ).
+
+　・wup_tsk does not cause an error when issued to the self task (the
+    specification requires it to be E_OBJ).
+
+　・sus_tsk does not cause an error when issued to the self task, and it
+    does not dispatch immediately (this is to speed up processing, but it
+    will be reflected when scanning the ready queue with ena_dsp etc.)
+
+　・If you issue get_tid from within an interrupt handler, it will return
+    the id of the running task (the specification states it returns -1).
+
+　・Interrupts cannot be enabled within an interrupt handler (interrupts
+    are automatically disabled on 86-series CPUs, so leave them as is).
+    If interrupts are enabled, subsequent interrupt handlers may not be
+    executed.
+
+The five previous issues are caused by interrupt handlers.
+
+　・If rot_rdq is issued more than once for the same priority as the
+    currently executing task in a dispatch disabled state (including
+    interrupt disabled state and interrupt handler execution), the second
+    and subsequent rot_rdqs will be ignored (once dispatched, they will
+    become normal).
+
+　・If rot_rdq is issued for a priority where a suspended task exists,
+    the ready queue may not be rotated.
+
+The two previous issues are due to the fact that suspended tasks are
+imported into the ready queue.
+
+
+　◆In conclusion◆
+
+Although still immature in many aspects, work will continue on
+implementation and sample programs. Last but not least, I would like to
+take this opportunity to thank everyone who has used ASURA-I so far, the
+people who developed and released the wonderful specification called
+TRON, and the people who are continuing to refine it even at this moment.
+In particular, I would like to thank Professor Takada who kindly
+responded to my questions via e-mail, Professor Sakamura who proposed
+TRON, everyone at Personal Media who created the opportunity for me to
+discover TRON, and of course the ITRON expert committee. Thank you very
+much to everyone involved.

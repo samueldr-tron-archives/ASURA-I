@@ -1,0 +1,28 @@
+CLI for training (tr.com), but when started, it generates Task ID = 2-8,
+Semaphore's 1-4, Event Flags 1-4, and Mailboxes 1-4 respectively, displays
+prompts and waits for command input.
+
+| ・System Call
+| tskid = 01 > $$$_$$$ $$ $$
+|
+|       All input should be in lower case.
+|         preq_sem → pol_sem
+|         prcv_msg → pol_msg
+|         frsm_tsk → frm_tsk.
+|
+| The first $$ is the setting of the BX register and the next $$ is the
+| setting of the DX register, which is entered as a two-digit hexadecimal
+| number. If only one value is written, the value is set in both registers.
+|
+| ・commands for the CLI
+|   q (quit)
+|   r (show ready-que)
+|   t (show task-status)
+|   s (show semaphore-status)
+|   f (show flag-status)
+|   m (show mailbox-status)
+
+For example, if chg_pri 1c 02 is entered, 1Ch is stored in the BX register
+                ~~~~~~~~~~~~~
+and 02h in the DX register, respectively, and a system call is called to
+change the priority of the 02 task to 1Ch.

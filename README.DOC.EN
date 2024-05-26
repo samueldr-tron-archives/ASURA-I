@@ -1,0 +1,109 @@
+
+　　／■　■‾‾■　■‾‾■　■＼　＿　■　μITRON 3.0 Real-Time Multitasking Monitor
+　／　■＿＿■　■＿■　■＿＿■　＼‾　■　Copyright (c) Mineyuki Kimoto 1994
+
+                             Version 1.01.00
+
+
+Thank you for downloading ASURA-I. This archive contains the following
+files.
+
+
+a--w lh5:1M B32F     9683     4563  47.1% 94-09-19 22:41:34 ai101.doc
+a--w lh5:1M 7F10     8849     2609  29.5% 94-09-19 23:43:16 asura_i.sys
+a--w lh5:1M 5C00    52282    13039  24.9% 94-09-18 17:48:16 asura_i.asm
+
+ASURA-I main unit. Since it is a device driver, please incorporate it by
+using config.sys or adddrv, etc. The version is 1.01.00.
+
+
+a--w lh5:1M 2FB4     5255     1797  34.2% 94-09-19 23:35:00 as100.doc
+a--w lh5:1M 00BE     3058     1197  39.1% 94-07-18 05:24:46 as.com
+a--w lh5:1M 2E7C    10398     2687  25.8% 94-07-18 05:22:48 as.asm
+
+This is a status display program for ASURA-I. Outputs the status of
+tasks, ready queues, semaphores, event flags, and mailboxes. The version
+is 1.00.00.
+
+
+a--w lh5:1M 1E88      949      585  61.6% 94-07-18 13:55:36 tr100.doc
+a--w lh5:1M E32D     3898     2221  57.0% 94-07-18 11:06:46 tr.com
+a--w lh5:1M 099A    18394     4660  25.3% 94-07-18 11:06:32 tr.asm
+
+This is a CLI for training. You can enter system calls to see how the
+task works. The version is 1.00.00.
+
+
+a--w lh5:1M CC81     8985     2527  28.1% 94-07-18 11:04:54 asura_i.inc
+
+This is an include file for writing programs that use ASURA-I. It
+contains macros for each system call, packet structures, constants, etc.
+The version is 1.00.00.
+
+
+a--w lh5:1M 6869     2914     1225  42.0% 94-07-18 11:55:44 ai_term.asm
+a--w lh5:1M 1843     1024      503  49.1% 94-07-18 11:55:54 ai_term.com
+
+This is a sample program of communication software. PC-98 only, fixed at
+9600bps. Exit is [CTRL]+[E].
+
+
+a--w lh5:1M 83F4     2999     1249  41.6% 94-07-18 11:57:14 ai_termk.asm
+a--w lh5:1M 9AD6     1024      520  50.8% 94-07-18 11:57:34 ai_termk.com
+
+This is a version of the above software that outputs to both standard
+output and standard error output. It can be logged by redirecting.
+
+
+｜a--w lh5:1M 1B43      219      192  87.7% 94-09-19 23:40:18 tcbc000.doc
+｜a--w lh5:1M B4E4     4352      777  17.9% 94-09-11 20:17:28 tcbc.com
+｜a--w lh5:1M 1E75     9367     2673  28.5% 94-09-11 20:15:34 tcbc.asm
+
+TCB Checker. While programming, inspects the work area for destruction
+due to ASURA-I's own malfunctions or application failures.
+
+
+
+We are currently preparing a manual. We apologize for the inconvenience,
+but please feel free to contact us with any questions by email. m(. .)m
+
+
+　　　　◆◆◆　Usage precautions　◆◆◆
+
+The author assumes no responsibility for any damages resulting from the
+use of this software. Use at your own risk.
+
+This software may only be used for personal use and for educational and
+research purposes at school institutions. Commercial use is not allowed.
+
+If you have any problems with this software, please contact the author. I
+may not always be able to respond, but I would like to do my best.
+
+Redistribution of this software is not restricted, but the contents of
+the archive must not be altered in any way. Also, the exchange of money
+exceeding the actual cost of the software is prohibited.
+
+At this stage, we do not allow parts of this archive to be published by
+incorporating them into other software, but we are considering allowing
+asura_i.sys to be published that way. Please look forward to it.
+
+As an exception, the contents of asura_i.inc may be quoted and published
+in software only for the release of free software.
+
+
+
+ 18 Jul. 1994
+                      Professor Koyanagi aka 3.14 aka Mineyuki Kimoto
+                                          　NIFTY-Serve ID : JBA03350
+                              Internet ID : jba03350@niftyserve.or.jp
+
+--------------------------------------------------------------------------
+| About the rough translation                                            |
+| ---------------------------                                            |
+|                                                                        |
+| This was translated by gauging the intended meaning, and knowing the   |
+| specificiation enough to make good use of machine translation.         |
+|                                                                        |
+| Please excuse any inaccuracies.                                        |
+|        - samueldr                                                      |
+--------------------------------------------------------------------------

@@ -1,0 +1,162 @@
+This is a program that displays the internal status of ASURA-I.
+When executed, it displays:
+        ・Task information
+        ・Ready queue information
+        ・Semaphore information
+        ・Event flag information
+        ・Mailbox information
+You can also redirect it to a file.
+
+Note: This program is executed without checking whether ASURA-I is
+      resident. This is done to ensure that even if the work area is
+      destroyed due to an application failure, the remaining information
+      can be retrieved. Therefore, if you run this when ASURA-I is not
+      resident, the display may not stop. be careful.
+
+
+　■■■　Example of execution　■■■
+
+
+　　／■　■‾‾■　■‾‾■　■＼　＿　■　μITRON 3.0 仕様　リアルタイム・マルチタスクモニタ
+　／　■＿＿■　■＿■　■＿＿■　＼‾　■　Copyright (c) Mineyuki Kimoto 1994
+
+　　　　　　　ＡＳＵＲＡ−Ｉ 状態表示プログラム ver 1.00.00 - α
+
+task status
+             +0   pri i     +1   pri i     +2   pri i     +3   pri i
+tskid=00   [^_^]  00 00   [> <]  1F 1F   [- -]  1F 1F   [O O]  -- 1F
+tskid=04   [- -]  1F 1F   [> <]  1F 1F   [_ _]  1F 1F  P[^o^]d 10 1F
+tskid=08   [^_^]  1F 1F
+tskid=0C
+tskid=10
+tskid=14
+tskid=18
+tskid=1C
+tskid=20
+tskid=24
+tskid=28
+tskid=2C
+tskid=30
+tskid=34
+tskid=38
+tskid=3C
+
+ready-que status (dispatch enabled)
+
+pri = 10  P[^o^]d 07
+            w=00 s=00
+pri = 1F   [> <]  05   [^_^]  08
+            w=00 s=01   w=00 s=00
+pri = 00   [^_^]  00
+            w=00 s=00
+
+semaphore status
+
+semid=01   [> <]  01   [- -]  02
+semid=02 semcnt=01
+semid=03 semcnt=01
+semid=04 semcnt=01
+
+ivent-flag status
+
+flgid=01   [- -]  04
+ 0000  s     FFFF  ac
+flgid=02
+ 0000  s
+flgid=03
+ 0000  m
+flgid=04
+ 0000  m
+
+mail-box status (free 3D/40)
+
+mbxid=01
+mbxid=02  242F:0CD2
+mbxid=03
+mbxid=04  242F:0CD2   242F:0CD2
+
+−−−−−−−−−−−−−−−−−−−−−−−−−−−−−−
+
+　■　About common symbols
+
+P[^o^]d Run                      Running state
+ [^_^]  Ready                    Ready to run state
+ [> <]  Suspend / wait-suspend   Suspended state
+ [- -]  Wait                     Waiting state
+ [_ _]  Sleep                    Sleep state
+ [O O]  Dormant                  Dormant state
+
+　■　About idle tasks
+
+There is a task number 0 inside ASURA-I, and its priority is 0. This task
+is called an idle task; it is invisible and cannot be interacted with by
+the user. Therefore, it is not a problem if this task is in the following
+listings.
+
+　■　Precision
+
+All numbers displayed are hexadecimal numbers.
+
+｜task status
+｜             +0   pri i     +1   pri i     +2   pri i     +3   pri i
+
+Displays the status of all tasks of ASURA-I.
+
+             ↓task0         ↓task1         ↓task2         ↓task3
+｜tskid=00   [^_^]  00 00   [> <]  1F 1F   [- -]  1F 1F   [O O]  -- 1F
+｜tskid=04   [- -]  1F 1F   [> <]  1F 1F   [_ _]  1F 1F  P[^o^]d 10 1F
+             ↑task4         ↑task5         ↑task6         ↑task7
+
+The numbers next to each task are the "current priority" and "initial
+priority value." Note that tasks in dormant state, such as task 3, are
+not displayed because they do not have a "current priority".
+
+｜ready-que status (dispatch enabled)
+
+Ready queue status. Indicates whether dispatch is enabled.
+
+｜pri = 10  P[^o^]d 07
+｜            w=00 s=00
+｜pri = 1F   [> <]  05   [^_^]  08
+｜            w=00 s=01   w=00 s=00
+｜pri = 00   [^_^]  00
+｜            w=00 s=00
+
+'pri' is the priority, the number is the task ID; 'w' is wupcnt (number
+of wake-up requests), and 's' is suscnt (number of suspend requests).
+Please note that ASURA-I leaves tasks in the suspended state in the queue.
+
+｜semaphore status
+
+Semaphore status.
+
+｜semid=01   [> <]  01   [- -]  02
+｜semid=02 semcnt=01
+
+For each semaphore, if there are waiting tasks, their order is displayed,
+and if there are not, the semaphore value is displayed.
+
+｜ivent-flag status
+
+Event flag status.
+
+｜flgid=01   [- -]  04
+｜ 0000  s     FFFF  ac
+
+｜flgid=03
+｜ 0000  m
+
+The current flag pattern is shown on the left. 's' is a single wait flag,
+'m' is a multiple wait flag. On the right is a list of waiting tasks,
+and below is the waiting pattern and waiting mode (and/or/clr).
+
+｜mail-box status (free 3D/40)
+
+Mailbox status. The total free space in the mailbox is displayed.
+
+｜mbxid=01
+｜mbxid=02  242F:0CD2
+
+For each mailbox, if there are waiting tasks, the list of waiting tasks
+is displayed, and if not, the list of incoming mail is displayed.
+

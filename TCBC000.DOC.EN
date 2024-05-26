@@ -1,0 +1,5 @@
+This is a TCB checker, which inspects the work area of ASURA-I to the extent
+that it can be checked when an abnormality is suspected.
+
+If it is normal, it ends without displaying anything. If an abnormality is
+found, it displays the address where the abnormality was detected and ends.
