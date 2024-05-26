@@ -5,7 +5,7 @@
 ;   Copyright(c) Mineyuki Kimoto 1994
 ;
 
-;@¡¡¡@ƒŠƒ^[ƒ“ŠÖŒWƒ}ƒNƒ@¡¡¡
+;ã€€â– â– â– ã€€ãƒªã‚¿ãƒ¼ãƒ³é–¢ä¿‚ãƒžã‚¯ãƒ­ã€€â– â– â– 
 
 pop_wrk	macro
 	pop	BX
@@ -27,11 +27,11 @@ pop_err	macro	err
 	endm
 
 
-;@¡¡¡@ƒpƒ‰ƒ[ƒ^•]‰¿ƒ}ƒNƒ@¡¡¡
+;ã€€â– â– â– ã€€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿è©•ä¾¡ãƒžã‚¯ãƒ­ã€€â– â– â– 
 
 cnv_tid	macro	eid
-		;BX‚Í•Û‘¶‚µ‚Ä‚ ‚é‚à‚Ì‚Æ‚·‚é
-		;DL=tskidiDH‚ÍŒ©‚È‚¢j
+		;BXã¯ä¿å­˜ã—ã¦ã‚ã‚‹ã‚‚ã®ã¨ã™ã‚‹
+		;DL=tskidï¼ˆDHã¯è¦‹ãªã„ï¼‰
 		;entry:1 to 63
 	mov	BL,DL
 	sal	BL,1
@@ -40,11 +40,11 @@ cnv_tid	macro	eid
 	jc	&eid
 	endm
 
-		;DL‚ª0‚ÌŽž‚ÍArun_tsk‚ðŽæ“¾‚·‚é
+		;DLãŒ0ã®æ™‚ã¯ã€run_tskã‚’å–å¾—ã™ã‚‹
 cnv_tis	macro	eid
 	local	cnv_tis2
-		;BX‚Í•Û‘¶‚µ‚Ä‚ ‚é‚à‚Ì‚Æ‚·‚é
-		;DL=tskidiDH‚ÍŒ©‚È‚¢j
+		;BXã¯ä¿å­˜ã—ã¦ã‚ã‚‹ã‚‚ã®ã¨ã™ã‚‹
+		;DL=tskidï¼ˆDHã¯è¦‹ãªã„ï¼‰
 		;entry:1 to 63
 	mov	BL,DL
 	sal	BL,1
@@ -57,7 +57,7 @@ cnv_tis2:
 	endm
 
 cnv_obj	macro	eid
-		;BX‚Í•Û‘¶‚µ‚Ä‚ ‚é‚à‚Ì‚Æ‚·‚é
+		;BXã¯ä¿å­˜ã—ã¦ã‚ã‚‹ã‚‚ã®ã¨ã™ã‚‹
 		;extry:1 to 31
 	mov	BL,DL
 	test	BL,0e0h
@@ -68,21 +68,21 @@ cnv_obj	macro	eid
 	endm
 
 cnv_sid	macro	eid
-		;DL=semidiDH‚ÍŒ©‚È‚¢j
+		;DL=semidï¼ˆDHã¯è¦‹ãªã„ï¼‰
 	cnv_obj	&eid
 
 	or	BL,83h
 	endm
 
 cnv_fid	macro	eid
-		;DL=flgidiDH‚ÍŒ©‚È‚¢j
+		;DL=flgidï¼ˆDHã¯è¦‹ãªã„ï¼‰
 	cnv_obj	&eid
 
 	or	BL,82h
 	endm
 
 cnv_mid	macro	eid
-		;DL=flgidiDH‚ÍŒ©‚È‚¢j
+		;DL=flgidï¼ˆDHã¯è¦‹ãªã„ï¼‰
 	cnv_obj	&eid
 
 	or	BL,2
@@ -101,9 +101,9 @@ cnv_pri	macro	epar, self
 	endm
 
 
-;@¡¡¡@ƒVƒXƒeƒ€ó‘ÔŠm”Fƒ}ƒNƒ@¡¡¡
+;ã€€â– â– â– ã€€ã‚·ã‚¹ãƒ†ãƒ çŠ¶æ…‹ç¢ºèªãƒžã‚¯ãƒ­ã€€â– â– â– 
 
-	;ectx‚ðŒŸo‚·‚é
+	;ectxã‚’æ¤œå‡ºã™ã‚‹
 chk_ctx	macro
 	local	chk_ctx1
 	and	CX,CX
@@ -142,10 +142,10 @@ chk_tst	macro	tskstat, eobj, enoexs
 	endm
 
 
-;@¡¡¡@ƒƒCƒ“ƒŠƒ“ƒN‘€ìƒ}ƒNƒ@¡¡¡
+;ã€€â– â– â– ã€€ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯æ“ä½œãƒžã‚¯ãƒ­ã€€â– â– â– 
 
-	;BL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚ðíœ‚·‚éiƒƒCƒ“ƒŠƒ“ƒNj
-	;mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	;BLã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã‚’å‰Šé™¤ã™ã‚‹ï¼ˆãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ï¼‰
+	;mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 del_que	macro
 	mov	AX,BX		;AL=BL
 	inc	AH		;AH=mlk_top+1
@@ -158,13 +158,13 @@ del_que	macro
 	mov	[BX],AL
 	endm
 		;AH=mlk_top
-		;AL=’¼‘O‚É‚ ‚Á‚½ƒŠƒ“ƒN
+		;AL=ç›´å‰ã«ã‚ã£ãŸãƒªãƒ³ã‚¯
 		;BH=mlk_top+1
-		;BL=’¼Œã‚É‚ ‚Á‚½ƒŠƒ“ƒN
+		;BL=ç›´å¾Œã«ã‚ã£ãŸãƒªãƒ³ã‚¯
 
-	;BL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚Ì’¼Œã‚ÉAL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚ð’Ç‰Á‚·‚é
-	;AL‚ÌƒŠƒ“ƒN‚Í”ñÚ‘±‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-	;mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	;BLã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã®ç›´å¾Œã«ALã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã‚’è¿½åŠ ã™ã‚‹
+	;ALã®ãƒªãƒ³ã‚¯ã¯éžæŽ¥ç¶šã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+	;mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 add_que	macro
 	mov	AH,AL
 	xchg	[BX],AL
@@ -175,14 +175,14 @@ add_que	macro
 	xchg	BL,AL
 	mov	[BX],AL
 	endm
-		;AH=Œ³‚ÌBL
-		;AL=•Û‘¶
-		;BL=ŽŸ‚ÌƒŠƒ“ƒN
+		;AH=å…ƒã®BL
+		;AL=ä¿å­˜
+		;BL=æ¬¡ã®ãƒªãƒ³ã‚¯
 		;BH=mlk_top+1
 
-	;BL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚Ì’¼‘O‚ÉAL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚ð‘}“ü‚·‚é
-	;AL‚ÌƒŠƒ“ƒN‚Í”ñÚ‘±‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-	;mov	BH,mlk_top+1	;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	;BLã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã®ç›´å‰ã«ALã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã‚’æŒ¿å…¥ã™ã‚‹
+	;ALã®ãƒªãƒ³ã‚¯ã¯éžæŽ¥ç¶šã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+	;mov	BH,mlk_top+1	;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 ins_que	macro
 	mov	AH,AL
 	xchg	[BX],AL
@@ -193,15 +193,15 @@ ins_que	macro
 	xchg	BL,AL
 	mov	[BX],AL
 	endm
-		;AH=Œ³‚ÌBL
-		;AL=•Û‘¶
-		;BL=‘O‚ÌƒŠƒ“ƒN
+		;AH=å…ƒã®BL
+		;AL=ä¿å­˜
+		;BL=å‰ã®ãƒªãƒ³ã‚¯
 		;BH=mlk_top
 
-	;AL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚ðØ‚è—£‚µABL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚Ì
-	;’¼Œã‚É’Ç‰Á‚·‚é
-	;AL‚ÍÚ‘±‚³‚ê‚½ƒ^ƒXƒN‚ÌƒŠƒ“ƒN‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-	;mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	;ALã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã‚’åˆ‡ã‚Šé›¢ã—ã€BLã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã®
+	;ç›´å¾Œã«è¿½åŠ ã™ã‚‹
+	;ALã¯æŽ¥ç¶šã•ã‚ŒãŸã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+	;mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 del_add	macro
 	mov	AH,AL
 	xchg	[BX],AL
@@ -219,15 +219,15 @@ del_add	macro
 	xchg	BL,AL
 	mov	[BX],AL
 	endm
-		;AH=Œ³‚ÌAL
-		;AL=Œ³‚Ì’¼‘O‚ÌƒŠƒ“ƒN
+		;AH=å…ƒã®AL
+		;AL=å…ƒã®ç›´å‰ã®ãƒªãƒ³ã‚¯
 		;BH=mlk_top+1
-		;BL=Œ³‚Ì’¼Œã‚ÌƒŠƒ“ƒN
+		;BL=å…ƒã®ç›´å¾Œã®ãƒªãƒ³ã‚¯
 
-	;AL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚ðØ‚è—£‚µ‚ÄABL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚Ì
-	;’¼‘O‚É‘}“ü‚·‚é
-	;AL‚ÍÚ‘±‚³‚ê‚½ƒ^ƒXƒN‚ÌƒŠƒ“ƒN‚Å‚È‚¯‚ê‚Î‚È‚ç‚È‚¢
-	;mov	BH,mlk_top+1	;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	;ALã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã‚’åˆ‡ã‚Šé›¢ã—ã¦ã€BLã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã®
+	;ç›´å‰ã«æŒ¿å…¥ã™ã‚‹
+	;ALã¯æŽ¥ç¶šã•ã‚ŒãŸã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ã§ãªã‘ã‚Œã°ãªã‚‰ãªã„
+	;mov	BH,mlk_top+1	;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 del_ins	macro
 	mov	AH,AL
 	xchg	[BX],AL
@@ -245,15 +245,15 @@ del_ins	macro
 	dec	BH
 	mov	[BX],AL
 	endm
-		;AH‚ÍŒ³‚ÌAL
-		;AL‚ÍŒ³‚Ì’¼Œã‚ÌƒŠƒ“ƒN
+		;AHã¯å…ƒã®AL
+		;ALã¯å…ƒã®ç›´å¾Œã®ãƒªãƒ³ã‚¯
 		;BH=mlk_top
-		;BL‚ÍŒ³‚Ì’¼Œã‚ÌƒŠƒ“ƒN
+		;BLã¯å…ƒã®ç›´å¾Œã®ãƒªãƒ³ã‚¯
 
 
-;@¡¡¡@ƒ[ƒ‹ƒŠƒ“ƒN‘€ìƒ}ƒNƒ@¡¡¡
+;ã€€â– â– â– ã€€ãƒ¡ãƒ¼ãƒ«ãƒªãƒ³ã‚¯æ“ä½œãƒžã‚¯ãƒ­ã€€â– â– â– 
 
-	;BL‚ÅŽ¦‚³‚ê‚éƒ[ƒ‹ƒŠƒ“ƒN‚ðíœ‚·‚é
+	;BLã§ç¤ºã•ã‚Œã‚‹ãƒ¡ãƒ¼ãƒ«ãƒªãƒ³ã‚¯ã‚’å‰Šé™¤ã™ã‚‹
 	;mov	BH,mlq_top
 del_mlq	macro
 	mov	AL,BL
@@ -264,12 +264,12 @@ del_mlq	macro
 	xchg	AL,BL
 	mov	[BX+1],AL
 	endm
-		;AH=Œ³‚ÌBL
-		;AL=’¼‘O‚ÌƒŠƒ“ƒN
+		;AH=å…ƒã®BL
+		;AL=ç›´å‰ã®ãƒªãƒ³ã‚¯
 		;BH=mlq_top
-		;BL=’¼Œã‚ÌƒŠƒ“ƒN
+		;BL=ç›´å¾Œã®ãƒªãƒ³ã‚¯
 
-	;BL‚ÅŽ¦‚³‚ê‚éƒ[ƒ‹ƒGƒ“ƒgƒŠ‚Ì’¼‘O‚ÉAL‚ÌƒŠƒ“ƒN‚ð‘}“ü‚·‚é
+	;BLã§ç¤ºã•ã‚Œã‚‹ãƒ¡ãƒ¼ãƒ«ã‚¨ãƒ³ãƒˆãƒªã®ç›´å‰ã«ALã®ãƒªãƒ³ã‚¯ã‚’æŒ¿å…¥ã™ã‚‹
 	;mov	BH,mlq_top
 ins_mlq	macro
 	mov	AH,AL
@@ -279,15 +279,15 @@ ins_mlq	macro
 	xchg	AH,BL
 	mov	[BX],AX
 	endm
-		;AH=‚Ð‚Æ‚Â‘O‚ÌƒŠƒ“ƒN
-		;AL=Œ³‚ÌBL
+		;AH=ã²ã¨ã¤å‰ã®ãƒªãƒ³ã‚¯
+		;AL=å…ƒã®BL
 		;BH=mlq_top
-		;BL=Œ³‚ÌAL
+		;BL=å…ƒã®AL
 
 
-;@¡¡¡@ƒŠƒ“ƒN‘€ì•¡‡ƒ}ƒNƒ@¡¡¡
+;ã€€â– â– â– ã€€ãƒªãƒ³ã‚¯æ“ä½œè¤‡åˆãƒžã‚¯ãƒ­ã€€â– â– â– 
 
-	;BL‚ÌƒLƒ…[‚ÉAŽÀs’†ƒ^ƒXƒN‚ðÚ‘±‚µ‚Ä‘Ò‚¿‚É“ü‚é
+	;BLã®ã‚­ãƒ¥ãƒ¼ã«ã€å®Ÿè¡Œä¸­ã‚¿ã‚¹ã‚¯ã‚’æŽ¥ç¶šã—ã¦å¾…ã¡ã«å…¥ã‚‹
 	;mov	BH,mlk_top+1
 ent_wai	macro
 	mov	AL,run_tsk
@@ -298,7 +298,7 @@ ent_wai	macro
 	jmp	disp
 	endm
 
-	;AL‚Ìƒ^ƒXƒN‚ð‘Ò‚¿s—ñ‚©‚çŠO‚µ‚ÄƒŒƒfƒBƒLƒ…[‚É‚Â‚È‚®
+	;ALã®ã‚¿ã‚¹ã‚¯ã‚’å¾…ã¡è¡Œåˆ—ã‹ã‚‰å¤–ã—ã¦ãƒ¬ãƒ‡ã‚£ã‚­ãƒ¥ãƒ¼ã«ã¤ãªã
 	;BH=mlk_top+1
 ext_wai	macro
 	mov	BL,AL
@@ -306,9 +306,9 @@ ext_wai	macro
 	mov	BL,[BX+102h]	;BL=tskpri
 	del_ins
 	endm
-		;AH=Œ³‚ÌAL
+		;AH=å…ƒã®AL
 
-	;reg‚ðƒfƒBƒXƒpƒbƒ`ƒtƒ‰ƒO‚Æ‚µ‚Äeok‚ÅI—¹‚·‚é
+	;regã‚’ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒãƒ•ãƒ©ã‚°ã¨ã—ã¦eokã§çµ‚äº†ã™ã‚‹
 ext_eok	macro	reg
 	local	ext_eok1
 	xor	AX,AX
@@ -325,7 +325,7 @@ ext_eok1:
 code	segment
 	assume	CS:code,DS:code
 
-		;ƒfƒoƒCƒXƒhƒ‰ƒCƒoŠÇ—ì‹Æ—Ìˆæ
+		;ãƒ‡ãƒã‚¤ã‚¹ãƒ‰ãƒ©ã‚¤ãƒç®¡ç†ä½œæ¥­é ˜åŸŸ
 devheader       dd      -1
 devattr         dw      8000h
                 dw      strategy
@@ -335,20 +335,20 @@ devattr         dw      8000h
 packet          dd      0
 
 s_packet        struc
-cmd_len         db      ?               ;command pakent ‚Ì’·‚³
-unit            db      ?               ;block device ‚Ì unit ”Ô†
+cmd_len         db      ?               ;command pakent ã®é•·ã•
+unit            db      ?               ;block device ã® unit ç•ªå·
 cmd             db      ?               ;command
 status          dw      ?               ;status
-                db      8 dup (?)       ;—\–ñ
-                                        ;---- ‚±‚±‚Ü‚ÅŒÅ’è
-unit_num        db      ?               ;Block device ‚ª support ‚·‚éunit”
-break_adr       dd      ?               ;í’“‚·‚éaddress
-bpb             dd      ?               ;BPB”z—ñ‚Ö‚Ìpointer
-drv             db      ?               ;Block device ‚Ì drive ”Ô†
+                db      8 dup (?)       ;äºˆç´„
+                                        ;---- ã“ã“ã¾ã§å›ºå®š
+unit_num        db      ?               ;Block device ãŒ support ã™ã‚‹unitæ•°
+break_adr       dd      ?               ;å¸¸é§ã™ã‚‹address
+bpb             dd      ?               ;BPBé…åˆ—ã¸ã®pointer
+drv             db      ?               ;Block device ã® drive ç•ªå·
 s_packet        ends
 
 
-	;ƒfƒoƒCƒXƒhƒ‰ƒCƒo‚ÌŠÇ—
+	;ãƒ‡ãƒã‚¤ã‚¹ãƒ‰ãƒ©ã‚¤ãƒã®ç®¡ç†
 
 strategy	proc	far
 	mov	word ptr CS:[packet],BX
@@ -399,35 +399,35 @@ interrupt	endp
 
 
 ;
-;@—Dæ“x‚É‚Â‚¢‚Ä
+;ã€€å„ªå…ˆåº¦ã«ã¤ã„ã¦
 ;
-;	E—Dæ“x‚ª‚‚¢•û‚©‚ç pri=1,2,3,........,30,31,0 ‚Å‚ ‚éB
-;	Etskid=0 ‚ÍAƒVƒXƒeƒ€‚ª’ñ‹Ÿ‚·‚é–³ŒÀƒ‹[ƒvƒ^ƒXƒN‚Å‚ ‚éBpri=0 
-;	@@iÅ’á—Dæ“xj‚Å‚ ‚èA—\–ñ‚³‚ê‚Ä‚¢‚éB
-;@@@@EƒLƒ…[ƒGƒ“ƒgƒŠ‚ÍA‚»‚ê‚¼‚ê‚Ì—Dæ“x‚ÌÅŒã”ö‚É‚ ‚é
+;	ãƒ»å„ªå…ˆåº¦ãŒé«˜ã„æ–¹ã‹ã‚‰ pri=1,2,3,........,30,31,0 ã§ã‚ã‚‹ã€‚
+;	ãƒ»tskid=0 ã¯ã€ã‚·ã‚¹ãƒ†ãƒ ãŒæä¾›ã™ã‚‹ç„¡é™ãƒ«ãƒ¼ãƒ—ã‚¿ã‚¹ã‚¯ã§ã‚ã‚‹ã€‚pri=0 
+;	ã€€ã€€ï¼ˆæœ€ä½Žå„ªå…ˆåº¦ï¼‰ã§ã‚ã‚Šã€äºˆç´„ã•ã‚Œã¦ã„ã‚‹ã€‚
+;ã€€ã€€ã€€ã€€ãƒ»ã‚­ãƒ¥ãƒ¼ã‚¨ãƒ³ãƒˆãƒªã¯ã€ãã‚Œãžã‚Œã®å„ªå…ˆåº¦ã®æœ€å¾Œå°¾ã«ã‚ã‚‹
 ;
-;@ƒŠƒ“ƒN‚É‚Â‚¢‚Ä
+;ã€€ãƒªãƒ³ã‚¯ã«ã¤ã„ã¦
 ;
-;	E‘¶Ý‚µ‚Ä‚¢‚È‚¢ƒZƒ}ƒtƒHEƒCƒxƒ“ƒgƒtƒ‰ƒOEƒ[ƒ‹ƒ{ƒbƒNƒX‚ÍA‚»
-;	@@‚ê‚¼‚ê‚ÌID=0‚ÌƒGƒ“ƒgƒŠ‚ÉƒŠƒ“ƒN‚·‚éB
-;	E”ñÚ‘±‚ÌƒŠƒ“ƒN‚ÍAŽ©•ªŽ©g‚ðŽw‚·‚æ‚¤‚É‚·‚éB
-;	EƒƒCƒ“ƒŠƒ“ƒN‚ÍAŽŸƒ|ƒCƒ“ƒ^‚ð‚»‚Ì‚Ü‚ÜŠi”[‚·‚éB
-;	EƒCƒxƒ“ƒgƒtƒ‰ƒO‘Ò‚¿ƒLƒ…[‚Ì‚ÝA‹t‡‚ÅŠi”[‚·‚éiæ“ªƒŠƒ“ƒN‚É’Ç
-;	@@‰Á‚µAÅŒã”öƒŠƒ“ƒN‚©‚çŽæ‚èo‚·jB
+;	ãƒ»å­˜åœ¨ã—ã¦ã„ãªã„ã‚»ãƒžãƒ•ã‚©ãƒ»ã‚¤ãƒ™ãƒ³ãƒˆãƒ•ãƒ©ã‚°ãƒ»ãƒ¡ãƒ¼ãƒ«ãƒœãƒƒã‚¯ã‚¹ã¯ã€ã
+;	ã€€ã€€ã‚Œãžã‚Œã®ID=0ã®ã‚¨ãƒ³ãƒˆãƒªã«ãƒªãƒ³ã‚¯ã™ã‚‹ã€‚
+;	ãƒ»éžæŽ¥ç¶šã®ãƒªãƒ³ã‚¯ã¯ã€è‡ªåˆ†è‡ªèº«ã‚’æŒ‡ã™ã‚ˆã†ã«ã™ã‚‹ã€‚
+;	ãƒ»ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã¯ã€æ¬¡ãƒã‚¤ãƒ³ã‚¿ã‚’ãã®ã¾ã¾æ ¼ç´ã™ã‚‹ã€‚
+;	ãƒ»ã‚¤ãƒ™ãƒ³ãƒˆãƒ•ãƒ©ã‚°å¾…ã¡ã‚­ãƒ¥ãƒ¼ã®ã¿ã€é€†é †ã§æ ¼ç´ã™ã‚‹ï¼ˆå…ˆé ­ãƒªãƒ³ã‚¯ã«è¿½
+;	ã€€ã€€åŠ ã—ã€æœ€å¾Œå°¾ãƒªãƒ³ã‚¯ã‹ã‚‰å–ã‚Šå‡ºã™ï¼‰ã€‚
 ;
-;@ƒ^ƒCƒ}[ƒhƒ‰ƒCƒo‚É‚Â‚¢‚Ä
+;ã€€ã‚¿ã‚¤ãƒžãƒ¼ãƒ‰ãƒ©ã‚¤ãƒã«ã¤ã„ã¦
 ;
 ;
-;@@@@E‘Ò‚¿‚É“ü‚é‚Æ‚«‚ÉA•K‚¸ƒŠƒ“ƒN‚ðÝ’è‚·‚é
-;@@@@E‘Ò‚¿‚©‚ç”²‚¯‚é‚Æ‚«‚ÍAƒŠƒ“ƒN‚ð‰ðœ‚µ‚È‚¢
-;@@@@Edly_tsk ‚ÍAAX‚Ée_tmout ‚ð“ü‚ê‚Ä‚¨‚­i‘¼‚ÌƒVƒXƒeƒ€ƒR[ƒ‹‚Íe_okj
-;@@@@Eƒ^ƒCƒ€ƒAƒEƒgŽž‚ÍAtskstat ‚ªwait‚¾‚Á‚½‚çe_tmout ‚ð‚w‚n‚q‚·‚é
-;@@@@Eƒ^ƒCƒ€ƒAƒEƒg‚Ì”­¶‚·‚éƒVƒXƒeƒ€ƒR[ƒ‹‚ÍŽŸ‚Ì‚Æ‚¨‚èB
-;@@@@@@tslp_tsk
-;@@@@@@twai_sem
-;@@@@@@twai_flg
-;@@@@@@trcv_msg
-;@@@@@@dly_tsk
+;ã€€ã€€ã€€ã€€ãƒ»å¾…ã¡ã«å…¥ã‚‹ã¨ãã«ã€å¿…ãšãƒªãƒ³ã‚¯ã‚’è¨­å®šã™ã‚‹
+;ã€€ã€€ã€€ã€€ãƒ»å¾…ã¡ã‹ã‚‰æŠœã‘ã‚‹ã¨ãã¯ã€ãƒªãƒ³ã‚¯ã‚’è§£é™¤ã—ãªã„
+;ã€€ã€€ã€€ã€€ãƒ»dly_tsk ã¯ã€AXã«e_tmout ã‚’å…¥ã‚Œã¦ãŠãï¼ˆä»–ã®ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ã¯e_okï¼‰
+;ã€€ã€€ã€€ã€€ãƒ»ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆæ™‚ã¯ã€tskstat ãŒwaitã ã£ãŸã‚‰e_tmout ã‚’ï¼¸ï¼¯ï¼²ã™ã‚‹
+;ã€€ã€€ã€€ã€€ãƒ»ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã®ç™ºç”Ÿã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ã¯æ¬¡ã®ã¨ãŠã‚Šã€‚
+;ã€€ã€€ã€€ã€€ã€€ã€€tslp_tsk
+;ã€€ã€€ã€€ã€€ã€€ã€€twai_sem
+;ã€€ã€€ã€€ã€€ã€€ã€€twai_flg
+;ã€€ã€€ã€€ã€€ã€€ã€€trcv_msg
+;ã€€ã€€ã€€ã€€ã€€ã€€dly_tsk
 ;
 ;wupcnt:
 ;	01h:normal
@@ -443,7 +443,7 @@ interrupt	endp
 ;
 ;
 ;    >  00  10  20  30  40  50  60  70|  80  90  a0  b0  c0  d0  e0  f0<
-;00h                 ƒfƒoƒCƒXƒhƒ‰ƒCƒoŠÇ——Ìˆæ                      ---- 
+;00h                 ãƒ‡ãƒã‚¤ã‚¹ãƒ‰ãƒ©ã‚¤ãƒç®¡ç†é ˜åŸŸ                      ---- 
 ;  i                                                               ---- 
 ;  j                                                               ---- 
 ;  k                                                               ---- 
@@ -527,7 +527,7 @@ interrupt	endp
 ;  k  timer-que for LSB=1 to 127 -------------------------------------- 
 ;
 ;    >  00  10  20  30  40  50  60  70|  80  90  a0  b0  c0  d0  e0  f0<
-;10h                 ƒVƒXƒeƒ€ƒR[ƒ‹‰ðÍƒe[ƒuƒ‹                         
+;10h                 ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«è§£æžãƒ†ãƒ¼ãƒ–ãƒ«                         
 ;  i                                                                    
 ;  j                                                                    
 ;  k                                                                    
@@ -537,7 +537,7 @@ interrupt	endp
 ;  j                                                                    
 ;  k                                                                    
 ;
-;12h                 ‚n‚rŠi”[—Ìˆæ                                       
+;12h                 ï¼¯ï¼³æ ¼ç´é ˜åŸŸ                                       
 ;  i                                                                    
 ;  j                                                                    
 ;  k                                                                    
@@ -549,8 +549,8 @@ interrupt	endp
 ;
 
 	org	0f0h
-dsp_flg	db	0		;ƒfƒBƒXƒpƒbƒ`‹ÖŽ~ƒtƒ‰ƒO
-run_tsk	db	4		;ŽÀs’†ƒ^ƒXƒN‚Ìƒ|ƒCƒ“ƒ^
+dsp_flg	db	0		;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒç¦æ­¢ãƒ•ãƒ©ã‚°
+run_tsk	db	4		;å®Ÿè¡Œä¸­ã‚¿ã‚¹ã‚¯ã®ãƒã‚¤ãƒ³ã‚¿
 
 mlk_top	equ	1
 
@@ -558,12 +558,12 @@ mlk_top	equ	1
 sca_top	db	?
 
 mes_ini	db	0dh, 0ah
-	db	'@@^¡@¡PP¡@¡PP¡@¡_@Q@¡'
-	db	'@ƒÊITRON 3.0 Žd—l@Ø±ÙÀ²Ñ¥ÏÙÁÀ½¸ÓÆÀ', 0dh, 0ah
-	db	'@^@¡QQ¡@¡Q¡@¡QQ¡@_P@¡'
-	db	'@Copyright (c) Mineyuki Kimoto 1994', 0dh, 0ah
+	db	'ã€€ã€€ï¼â– ã€€â– â€¾â€¾â– ã€€â– â€¾â€¾â– ã€€â– ï¼¼ã€€ï¼¿ã€€â– '
+	db	'ã€€Î¼ITRON 3.0 ä»•æ§˜ã€€ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ãƒ»ãƒžãƒ«ãƒã‚¿ã‚¹ã‚¯ãƒ¢ãƒ‹ã‚¿', 0dh, 0ah
+	db	'ã€€ï¼ã€€â– ï¼¿ï¼¿â– ã€€â– ï¼¿â– ã€€â– ï¼¿ï¼¿â– ã€€ï¼¼â€¾ã€€â– '
+	db	'ã€€Copyright (c) Mineyuki Kimoto 1994', 0dh, 0ah
 	db	0dh, 0ah
-	db	'@@@@@@@@@@@@‚`‚r‚t‚q‚`|‚h ver 1.01.00'
+	db	'ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ï¼¡ï¼³ï¼µï¼²ï¼¡âˆ’ï¼© ver 1.01.00'
 	db	0dh, 0ah, '$'
 
 
@@ -574,7 +574,7 @@ mlq_top	equ	8
 	;tmr_top	equ	0ah
 
 
-	;ƒGƒ‰[ƒR[ƒh
+	;ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
 cnospt	equ	-17
 crsfn	equ	-20
 crsatr	equ	-24
@@ -590,7 +590,7 @@ crlwai	equ	-86
 
 
 	org	1000h
-fnc_top	equ	08h		;‚Q‚ÅŠ„‚Á‚Ä‚¨‚­
+fnc_top	equ	08h		;ï¼’ã§å‰²ã£ã¦ãŠã
 
 	;00
 	dw	ersfn,	ersfn,	ersfn,	ersfn
@@ -764,7 +764,7 @@ ersfn:
 
 
 
-		;ƒfƒBƒXƒpƒbƒ`§Œä‚ÉŠÖ‚·‚éƒVƒXƒeƒ€ƒR[ƒ‹
+		;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒåˆ¶å¾¡ã«é–¢ã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«
 
 disdsp:
 	;	entry AX-0ffe2h
@@ -772,7 +772,7 @@ disdsp:
 	;	          E_OK
 	;	          E_CTX
 	and	CH,CH
-	jnz	ectx		;IF=0 ‚È‚ç‚Î e_ctx
+	jnz	ectx		;IF=0 ãªã‚‰ã° e_ctx
 	mov	dsp_flg,0ffh
 	pop_eok
 
@@ -783,7 +783,7 @@ enadsp:
 	;	          E_OK
 	;	          E_CTX
 	and	CH,CH
-	jnz	ectx		;IF=0 ‚È‚ç‚Î e_ctx
+	jnz	ectx		;IF=0 ãªã‚‰ã° e_ctx
 	xor	AX,AX
 	mov	dsp_flg,AL	;AL=0
 	cli
@@ -794,7 +794,7 @@ ectx:
 
 
 
-		;ƒ^ƒXƒN‹N°‚ÉŠÖŒW‚·‚éƒVƒXƒeƒ€ƒR[ƒ‹
+		;ã‚¿ã‚¹ã‚¯èµ·åºŠã«é–¢ä¿‚ã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«
 
 slptsk:
 	;	entry AX-0ffdah
@@ -806,7 +806,7 @@ slptsk:
 	jnz	ectx
 	
 	mov	BL,run_tsk
-	mov	BH,mlk_top+2	;BH=wupcnt‚ÌƒAƒhƒŒƒX
+	mov	BH,mlk_top+2	;BH=wupcntã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	
 	cli
 	dec	byte ptr [BX+1]
@@ -814,7 +814,7 @@ slptsk:
 	
 	mov	byte ptr [BX],4	;tskstat is wait
 	
-	mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN
+	mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯
 	del_que
 
 	xor	AX,AX
@@ -845,7 +845,7 @@ canwup:
 	and	AH,AH
 	jz	canwup1		;now sleeping
 	dec	AH		;BX=wupcnt
-	mov	byte ptr [BX+1],1	;wupcnt‚ðƒNƒŠƒA
+	mov	byte ptr [BX+1],1	;wupcntã‚’ã‚¯ãƒªã‚¢
 canwup1:
 	mov	BL,AH
 	xor	AX,AX
@@ -886,7 +886,7 @@ wuptsk:
 	
 	cnv_tid	eid
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
 	mov	BH,mlk_top+2	;BH=wupcnt+1/tskstat
 	cli
 	mov	AX,[BX]		;AL=tskstat
@@ -897,7 +897,7 @@ wuptsk:
 	jz	wuptsk1
 	inc	AH
 	jz	eqovr
-	mov	[BX+1],AH	;wupcnt‚ð‘‚«ž‚Ý
+	mov	[BX+1],AH	;wupcntã‚’æ›¸ãè¾¼ã¿
 	pop_eok
 
 wuptsk1:
@@ -911,7 +911,7 @@ wuptsk1:
 
 
 
-		;—Dæ“x‚ÉŠÖŒW‚·‚éƒVƒXƒeƒ€ƒR[ƒ‹
+		;å„ªå…ˆåº¦ã«é–¢ä¿‚ã™ã‚‹ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«
 
 rotrdq:
 	;	entry AX-0ffe4h
@@ -929,21 +929,21 @@ rotrdq:
 	
 	cli
 	cmp	[BX+2],AL
-	jz	rotrdq3		;Ž©ƒ^ƒXƒN‚Ì—Dæ“x
+	jz	rotrdq3		;è‡ªã‚¿ã‚¹ã‚¯ã®å„ªå…ˆåº¦
 	
-	mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	mov	BL,AL		;AL=pri
 	sub	BL,4
-	mov	BL,[BX]		;pri‚Ìæ“ª‚Ìƒ^ƒXƒN
+	mov	BL,[BX]		;priã®å…ˆé ­ã®ã‚¿ã‚¹ã‚¯
 	
-	cmp	AL,BL		;‚»‚Ì—Dæ“x‚Ìƒ^ƒXƒN‚ª‚È‚¢
+	cmp	AL,BL		;ãã®å„ªå…ˆåº¦ã®ã‚¿ã‚¹ã‚¯ãŒãªã„
 	jz	rotrdq1
 	
 	xchg	AL,BL		;BL=pri
-				;AL=æ“ªƒ^ƒXƒN
-	inc	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
-	cmp	[BX],AL		;ƒŒƒfƒBƒLƒ…[‚ª•Ï‰»‚·‚é
-	jnz	del_insx	;ƒŒƒfƒBƒLƒ…[‚ÌXV
+				;AL=å…ˆé ­ã‚¿ã‚¹ã‚¯
+	inc	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
+	cmp	[BX],AL		;ãƒ¬ãƒ‡ã‚£ã‚­ãƒ¥ãƒ¼ãŒå¤‰åŒ–ã™ã‚‹
+	jnz	del_insx	;ãƒ¬ãƒ‡ã‚£ã‚­ãƒ¥ãƒ¼ã®æ›´æ–°
 rotrdq1:
 	pop_eok
 
@@ -953,11 +953,11 @@ rotrdq2:
 	cli
 	mov	AL,[BX+2]	;AL=pri
 rotrdq3:
-	dec	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	dec	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	xchg	BL,AL		;AL=tskid
 				;BL=pri
 	cmp	[BX],AL
-	jz	rotrdq1		;Ž©ƒ^ƒXƒN‚Ì‚Ý
+	jz	rotrdq1		;è‡ªã‚¿ã‚¹ã‚¯ã®ã¿
 	jmp	del_insx
 
 chgpri:
@@ -974,31 +974,31 @@ chgpri:
 	mov	AL,SS:[BX]
 	cnv_tis	eid1
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	cnv_pri	epar1, chgpri1
 
 	jmp	chgpri2
 chgpri1:
-	mov	AL,[BX+3]	;ipri‚ð“Ç‚Ý‚Æ‚è
+	mov	AL,[BX+3]	;ipriã‚’èª­ã¿ã¨ã‚Š
 chgpri2:
 	mov	AH,[BX]		;AH=tskstat
 	test	AH,10h
-	jnz	eobj1		;‘ÎÛƒ^ƒXƒN‚ªdorment	;chg_pri
+	jnz	eobj1		;å¯¾è±¡ã‚¿ã‚¹ã‚¯ãŒdorment	;chg_pri
 	and	AH,AH
-	jz	enoexs1		;‘ÎÛƒ^ƒXƒN‚ªno-exist	;chg_pri
+	jz	enoexs1		;å¯¾è±¡ã‚¿ã‚¹ã‚¯ãŒno-exist	;chg_pri
 	
 	mov	[BX+2],AL	;AL=pri
 	
 	test	AH,2h
 	jz	chgpri3		;tskstat is wait
 	
-	dec	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	dec	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	xchg	AL,BL		;BL=pri
 				;AL=tsk
 	cmp	[BX],AL
-	jz	chgpri3		;ŽÀs‚µ‚Ä‚à•Ï‰»‚È‚µ
+	jz	chgpri3		;å®Ÿè¡Œã—ã¦ã‚‚å¤‰åŒ–ãªã—
 	
 
 del_insx:
@@ -1037,11 +1037,11 @@ tertsk:
 	
 	cnv_tid	eid1
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
 	cmp	BL,run_tsk
 	jz	eobj1
 	
-			;itskstat ƒ`ƒFƒbƒNj
+			;ï¼ˆtskstat ãƒã‚§ãƒƒã‚¯ï¼‰
 	cli
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	mov	AL,[BX]		;AL=tskstat
@@ -1049,10 +1049,10 @@ tertsk:
 
 	mov	byte ptr [BX],10h	;tskstat=dorment
 	
-		;BL‚ÅŽ¦‚³‚ê‚éƒŠƒ“ƒN‚ðíœ‚·‚éiƒƒCƒ“ƒŠƒ“ƒNj
-		;‚à‚µA‹N°‘Ò‚¿‚Å‚ ‚Á‚Ä‚àAˆ«‰e‹¿‚Í‚È‚¢
+		;BLã§ç¤ºã•ã‚Œã‚‹ãƒªãƒ³ã‚¯ã‚’å‰Šé™¤ã™ã‚‹ï¼ˆãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ï¼‰
+		;ã‚‚ã—ã€èµ·åºŠå¾…ã¡ã§ã‚ã£ã¦ã‚‚ã€æ‚ªå½±éŸ¿ã¯ãªã„
 	
-	mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	del_que
 
 	pop_eok
@@ -1074,17 +1074,17 @@ statsk:
 	
 	cnv_tid	eid1
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
-			;itskstat ƒ`ƒFƒbƒNj
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
+			;ï¼ˆtskstat ãƒã‚§ãƒƒã‚¯ï¼‰
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	mov	CL,[BX]		;CL=tskstat
 	and	CL,CL
-	jz	enoexs1		;‘ÎÛƒ^ƒXƒN‚ªno-exist
+	jz	enoexs1		;å¯¾è±¡ã‚¿ã‚¹ã‚¯ãŒno-exist
 	test	CL,10h
-	jz	eobj1		;‘ÎÛƒ^ƒXƒN‚ªdorment ‚Å‚È‚¢
+	jz	eobj1		;å¯¾è±¡ã‚¿ã‚¹ã‚¯ãŒdorment ã§ãªã„
 	
-	mov	[BX+102h],AX	;‹N“®ƒ^ƒXƒN‚Ì‚`‚wstacd
+	mov	[BX+102h],AX	;èµ·å‹•ã‚¿ã‚¹ã‚¯ã®ï¼¡ï¼¸ï¼stacd
 	
 	mov	word ptr [BX],0102h	;tskstat=02h(ready), wupcnt+1=1
 	mov	CL,[BX+3]	;CL=itskpri
@@ -1092,46 +1092,46 @@ statsk:
 	
 	mov	AL,BL		;AL=tsk_ptr
 	mov	BL,CL		;BL=tskpri
-	dec	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	dec	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	ins_que
 
-	mov	BL,AL		;BL=Œ³X‚ÌBL
+	mov	BL,AL		;BL=å…ƒã€…ã®BL
 	
 	mov	byte ptr [BX+1],0	;suscnt=0
 	
-	and	CH,CH		;ƒfƒBƒXƒpƒbƒ`ƒtƒ‰ƒO
+	and	CH,CH		;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒãƒ•ãƒ©ã‚°
 	pushf
 	push	ES
 	
-	test	byte ptr [BX+0c00h],1	;tskatr	‚±‚±‚©‚çƒtƒ‰ƒO•ÏX‹ÖŽ~
-							;b
-	les	AX,[BX+900h]	;ES:AX=initial SS:SP	;b
-							;b
-	mov	[BX+400h],AX	;SP			;b
-	mov	CX,ES					;b
-	mov	[BX+402h],CX	;SS			;b
-							;b
-	mov	CX,[BX+602h]	;CX:BX=initial CS:IP	;b
-	mov	BX,[BX+600h]				;b
-	xchg	AX,BX					;b
-							;b
-	mov	ES:[BX+10h],AX	;IPƒXƒ^ƒbƒN‚É‘‚«ž‚Ý	;b
-	mov	ES:[BX+12h],CX	;CS			;b
-	mov	word ptr ES:[BX+14h],7202h	;flags	;b
-							;b
-	jz	statsk1	;tskatr=TA_ASM			;‚±‚±‚Ü‚Å
-	mov	CX,ES		;SSi‚±‚±‚Å‚ÍESj‚ðŠî€ƒŒƒWƒXƒ^‚É‚·‚é
+	test	byte ptr [BX+0c00h],1	;tskatr	ã“ã“ã‹ã‚‰ãƒ•ãƒ©ã‚°å¤‰æ›´ç¦æ­¢
+							;ï½œ
+	les	AX,[BX+900h]	;ES:AX=initial SS:SP	;ï½œ
+							;ï½œ
+	mov	[BX+400h],AX	;SP			;ï½œ
+	mov	CX,ES					;ï½œ
+	mov	[BX+402h],CX	;SS			;ï½œ
+							;ï½œ
+	mov	CX,[BX+602h]	;CX:BX=initial CS:IP	;ï½œ
+	mov	BX,[BX+600h]				;ï½œ
+	xchg	AX,BX					;ï½œ
+							;ï½œ
+	mov	ES:[BX+10h],AX	;IPã‚¹ã‚¿ãƒƒã‚¯ã«æ›¸ãè¾¼ã¿	;ï½œ
+	mov	ES:[BX+12h],CX	;CS			;ï½œ
+	mov	word ptr ES:[BX+14h],7202h	;flags	;ï½œ
+							;ï½œ
+	jz	statsk1	;tskatr=TA_ASM			;ã“ã“ã¾ã§
+	mov	CX,ES		;SSï¼ˆã“ã“ã§ã¯ESï¼‰ã‚’åŸºæº–ãƒ¬ã‚¸ã‚¹ã‚¿ã«ã™ã‚‹
 statsk1:
 	mov	ES:[BX+4],CX	;ES
 	mov	ES:[BX+0eh],CX	;DS
 	
-	mov	CX,CS		;RETF—p
+	mov	CX,CS		;RETFç”¨
 	mov	word ptr ES:[BX+16h],offset hlng_ret
 	mov	ES:[BX+18h],CX
 	
 	pop	ES
 	popf
-	jz	statsk2		;ƒfƒBƒXƒpƒbƒ`‰Â”\
+	jz	statsk2		;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒå¯èƒ½
 	pop_eok
 
 statsk2:
@@ -1140,9 +1140,9 @@ statsk2:
 
 
 hlng_ret:
-	push	DS		;ƒXƒ^ƒbƒN‚ÉÏ‚Þ•K—v‚Í‚È‚¢‚ªA
-	push	CX		;ƒfƒoƒbƒOŽž‚ÌƒXƒ^ƒbƒNƒgƒŒ[ƒX
-	push	BX		;‚ðl—¶
+	push	DS		;ã‚¹ã‚¿ãƒƒã‚¯ã«ç©ã‚€å¿…è¦ã¯ãªã„ãŒã€
+	push	CX		;ãƒ‡ãƒãƒƒã‚°æ™‚ã®ã‚¹ã‚¿ãƒƒã‚¯ãƒˆãƒ¬ãƒ¼ã‚¹
+	push	BX		;ã‚’è€ƒæ…®
 	mov	BX,CS
 	mov	DS,BX
 
@@ -1150,31 +1150,31 @@ exttsk:
 	;	entry AX-0ffebh
 	;	exit  
 	
-		;ƒfƒBƒXƒpƒbƒ`ó‘Ô‚ÍA‚¢‚Á‚³‚¢l—¶‚µ‚È‚¢
+		;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒçŠ¶æ…‹ã¯ã€ã„ã£ã•ã„è€ƒæ…®ã—ãªã„
 	
-	mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	mov	BL,run_tsk
 	
 	cli
 	mov	byte ptr [BX+200h],10h	;tskstat=dorment
 	del_que
 
-	mov	dsp_flg,0	;ƒfƒBƒXƒpƒbƒ`‹–‰Â
+	mov	dsp_flg,0	;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒè¨±å¯
 	jmp	disp
 
 exdtsk:
 	;	entry AX-0ffeah
 	;	exit  
 	
-		;ƒfƒBƒXƒpƒbƒ`ó‘Ô‚ÍA‚¢‚Á‚³‚¢l—¶‚µ‚È‚¢
+		;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒçŠ¶æ…‹ã¯ã€ã„ã£ã•ã„è€ƒæ…®ã—ãªã„
 	
-	mov	BH,mlk_top	;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	mov	BH,mlk_top	;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	mov	BL,run_tsk
 	cli
 	mov	byte ptr [BX+200h],0	;tskstat=no-exist
 	del_que
 
-	mov	dsp_flg,0	;ƒfƒBƒXƒpƒbƒ`‹–‰Â
+	mov	dsp_flg,0	;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒè¨±å¯
 	jmp	disp
 
 gettid:
@@ -1198,7 +1198,7 @@ cretsk:
 	;	          exinf1
 	;	          exinf2
 	;	          tskatr
-	;	            b0-TA_HLNGistack‚ð’¼ÚŽw’èj
+	;	            b0-TA_HLNGï¼ˆstackã‚’ç›´æŽ¥æŒ‡å®šï¼‰
 	;	          task(offset,segment)
 	;	          itskpri
 	;	          stksz
@@ -1213,11 +1213,11 @@ cretsk:
 	cnv_tid	eid1a
 
 		;BL=tsk_ptr
-			;itskstat ƒ`ƒFƒbƒNj
+			;ï¼ˆtskstat ãƒã‚§ãƒƒã‚¯ï¼‰
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	test	byte ptr [BX],0ffh	;AL=tskstat
-	jnz	eobj1a		;‘ÎÛƒ^ƒXƒN‚ª‚·‚Å‚É‘¶Ý‚·‚é
+	jnz	eobj1a		;å¯¾è±¡ã‚¿ã‚¹ã‚¯ãŒã™ã§ã«å­˜åœ¨ã™ã‚‹
 	
 	mov	AL,ES:[SI+0ah]	;itskpri
 	cnv_pri	epar2, epar2
@@ -1230,40 +1230,40 @@ cretsk:
 	mov	[BX+3],AL	;itskpri
 	mov	byte ptr [BX],10h	;tskstat=dorment
 	
-	mov	[BX+0a00h],CL	;tskatr‚ð‚s‚b‚a‚ÉŠi”[
+	mov	[BX+0a00h],CL	;tskatrã‚’ï¼´ï¼£ï¼¢ã«æ ¼ç´
 	and	CX,CX		;tskatr
 	jz	cretsk1		;TA_ASM
-			;TA_HLNG iŽw’èƒXƒ^ƒbƒN‚ðŽg—pj
+			;TA_HLNG ï¼ˆæŒ‡å®šã‚¹ã‚¿ãƒƒã‚¯ã‚’ä½¿ç”¨ï¼‰
 	
 	mov	AX,ES:[SI+0eh]	;initial SP
 	mov	CX,ES:[SI+10h]	;initial SS
-	sub	AX,1ah		;ƒRƒ“ƒeƒLƒXƒg‚ª‘Þ”ð‚³‚ê‚½ó‘Ô‚Æ‚µ‚Äˆµ‚¤
+	sub	AX,1ah		;ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãŒé€€é¿ã•ã‚ŒãŸçŠ¶æ…‹ã¨ã—ã¦æ‰±ã†
 	
 	jmp	cretsk2
 cretsk1:
-				;TA_ASM i“à•”ƒXƒ^ƒbƒN‚ðŽg—pj
+				;TA_ASM ï¼ˆå†…éƒ¨ã‚¹ã‚¿ãƒƒã‚¯ã‚’ä½¿ç”¨ï¼‰
 	mov	AH,BL		;BL=tskid*4
 	shr	AH,1		;AH=tskid*2
 	inc	AH
 	inc	AH
-	add	AH,high offset bottom	;AX‚ÍƒXƒ^ƒbƒNƒGƒ“ƒh-14h
+	add	AH,high offset bottom	;AXã¯ã‚¹ã‚¿ãƒƒã‚¯ã‚¨ãƒ³ãƒ‰-14h
 	xor	AL,AL
 				;AX=initial SP
 	mov	CX,CS		;initial SS
 cretsk2:
 	mov	[BX+700h],AX
-	mov	[BX+702h],CX	;stack‚ð‚s‚b‚a‚ÉŠi”[
+	mov	[BX+702h],CX	;stackã‚’ï¼´ï¼£ï¼¢ã«æ ¼ç´
 	
 	mov	AX,ES:[SI+6]	;initial-IP
 	mov	CX,ES:[SI+8]	;initial-CS
 	
 	mov	[BX+400h],AX
-	mov	[BX+402h],CX	;task‚ð‚s‚b‚a‚ÉŠi”[
+	mov	[BX+402h],CX	;taskã‚’ï¼´ï¼£ï¼¢ã«æ ¼ç´
 	
 	mov	AX,ES:[SI]	;exinf-low
 	mov	CX,ES:[SI+2]	;exinf-high
 	mov	[BX+800h],AX
-	mov	[BX+802h],CX	;exinf‚ð‚s‚b‚a‚ÉŠi”[
+	mov	[BX+802h],CX	;exinfã‚’ï¼´ï¼£ï¼¢ã«æ ¼ç´
 	
 	pop_eok
 
@@ -1293,8 +1293,8 @@ deltsk:
 	
 	cnv_tid	eid1a
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
-			;itskstat ƒ`ƒFƒbƒNj
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
+			;ï¼ˆtskstat ãƒã‚§ãƒƒã‚¯ï¼‰
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	mov	AL,[BX]		;AL=tskstat
@@ -1367,8 +1367,8 @@ sustsk:
 	
 	cnv_tid	eid2
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
-			;itskstat ƒ`ƒFƒbƒNj
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
+			;ï¼ˆtskstat ãƒã‚§ãƒƒã‚¯ï¼‰
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	mov	AL,[BX]		;AL=tskstat
@@ -1393,8 +1393,8 @@ rsmtsk:
 	;	          E_OBJ
 	cnv_tid	eid3
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
-			;itskstat ƒ`ƒFƒbƒNj
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
+			;ï¼ˆtskstat ãƒã‚§ãƒƒã‚¯ï¼‰
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	mov	AL,[BX]		;AL=tskstat
@@ -1407,7 +1407,7 @@ rsmtsk:
 	dec	AL
 	mov	[BX+1],AL
 	
-	jnz	rsmtsk1		;suspend ó‘Ô‚ªŒp‘±
+	jnz	rsmtsk1		;suspend çŠ¶æ…‹ãŒç¶™ç¶š
 	and	CX,CX
 	jnz	rsmtsk1
 	xor	AX,AX
@@ -1428,8 +1428,8 @@ frsmtsk:
 	
 	cnv_tid	eid3
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
-			;itskstat ƒ`ƒFƒbƒNj
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
+			;ï¼ˆtskstat ãƒã‚§ãƒƒã‚¯ï¼‰
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	mov	AL,[BX]		;AL=tskstat
@@ -1472,7 +1472,7 @@ sigsem:
 	cli
 	chk_lnk	sigsem1, enoexs3
 
-	xor	AL,BL		;AL=æ“ª‚ÌƒZƒ}ƒtƒH‘Ò‚¿ƒ^ƒXƒN
+	xor	AL,BL		;AL=å…ˆé ­ã®ã‚»ãƒžãƒ•ã‚©å¾…ã¡ã‚¿ã‚¹ã‚¯
 	inc	BH		;BH=mlk_top+1
 	ext_wai
 
@@ -1507,7 +1507,7 @@ waisem:
 	cli
 	chk_lnk	waisem2, enoexs4
 
-			;ƒZƒ}ƒtƒH‘Ò‚¿ƒ^ƒXƒN‚ª‘¶Ý‚·‚é
+			;ã‚»ãƒžãƒ•ã‚©å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒå­˜åœ¨ã™ã‚‹
 waisem1:
 	ent_wai
 
@@ -1551,7 +1551,7 @@ preqsem:
 	cli
 	chk_lnk	preqsem1, enoexs4
 
-	jmp	etmout4		;ƒZƒ}ƒtƒH‘Ò‚¿ƒ^ƒXƒN‚ª‘¶Ý‚·‚é
+	jmp	etmout4		;ã‚»ãƒžãƒ•ã‚©å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒå­˜åœ¨ã™ã‚‹
 preqsem1:
 	mov	BH,mlq_top
 	mov	AL,[BX]		;AL=semcnt
@@ -1592,7 +1592,7 @@ cresem:
 	
 	mov	AL,ES:[SI+6]	;AL=isemcnt
 	mov	[BX+700h],AL
-				;BH=ƒƒCƒ“ƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+				;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	del_que
 
 	pop_eok
@@ -1622,7 +1622,7 @@ delsem1:
 	xchg	AL,BL		;AL=tsk_ptr
 				;BL=tskpri
 	inc	BH		;BH=mlk_top+1
-	ins_que			;ƒŠƒ“ƒN‚Í‹­§“I‚ÉØ‚é
+	ins_que			;ãƒªãƒ³ã‚¯ã¯å¼·åˆ¶çš„ã«åˆ‡ã‚‹
 
 	mov	BL,CL
 	test	BL,3
@@ -1630,7 +1630,7 @@ delsem1:
 delsem2:
 	mov	AL,BL
 	mov	BL,83h		;semid=0
-	inc	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	inc	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	ins_que
 
 	ext_eok	CH
@@ -1656,33 +1656,33 @@ relwai:
 	;	          E_OBJ
 	cnv_tid	eid5
 
-		;BL=ƒ^ƒXƒN‚ÌƒŠƒ“ƒNƒ|ƒCƒ“ƒ^
+		;BL=ã‚¿ã‚¹ã‚¯ã®ãƒªãƒ³ã‚¯ãƒã‚¤ãƒ³ã‚¿
 	mov	BH,mlk_top+2	;BH=tskstat/wupcnt+1
 	cli
 	mov	AX,[BX]		;AL=tskstat
 				;AH=wupcnt+1
 	chk_tst	4, eobj5, enoexs5
 
-	mov	word ptr [BX+102h],crlwai	;ƒGƒ‰[ƒR[ƒh
-	mov	AL,[BX+2]	;pri ‚ð“Ç‚Ýž‚Ý
+	mov	word ptr [BX+102h],crlwai	;ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
+	mov	AL,[BX+2]	;pri ã‚’èª­ã¿è¾¼ã¿
 	
 	and	AH,AH		;AH=wupcnt+1
 	jnz	relwai2
 	
-			;slp_tsk ‚Ì‰ðœ
+			;slp_tsk ã®è§£é™¤
 	
 	mov	word ptr [BX],0102h	;wupcnt=1
 					;tskstat is ready
 	xchg	AL,BL		;BL=pri, AL=tsk
-	dec	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	dec	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	ins_que
 
 	jmp	relwai3
 relwai2:
-			;ƒZƒ}ƒtƒH‘Ò‚¿E‘¼‚Ì‰ðœ
+			;ã‚»ãƒžãƒ•ã‚©å¾…ã¡ãƒ»ä»–ã®è§£é™¤
 	mov	byte ptr [BX],2	;tskstat is ready
 	xchg	AL,BL		;BL=pri, AL=tsk
-	dec	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	dec	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	del_ins
 
 relwai3:
@@ -1724,7 +1724,7 @@ creflg:
 	mov	CX,ES:[SI+4]	;CX=flgatr
 	test	CX,0fff7h
 	jnz	ersatr7
-	mov	[BX+700h],CL	;flgattr@TCB ‚ðXV
+	mov	[BX+700h],CL	;flgattr@TCB ã‚’æ›´æ–°
 	
 	mov	AX,ES:[SI]	;exinf-low
 	mov	CX,ES:[SI+2]	;exinf-high
@@ -1732,7 +1732,7 @@ creflg:
 	mov	[BX+0b00h],CX
 	
 	mov	CX,ES:[SI+6]	;CX=iflgptn
-	mov	[BX+500h],CX	;FLG-pattern@TCB ‚ðXV
+	mov	[BX+500h],CX	;FLG-pattern@TCB ã‚’æ›´æ–°
 	del_que
 
 	pop_eok
@@ -1752,7 +1752,7 @@ delflg:
 	or	CH,CL
 	cnv_fid	eid7
 
-	mov	BH,mlk_top+1	;ƒtƒ‰ƒO‚Í‹t•ûŒüƒŠƒ“ƒN
+	mov	BH,mlk_top+1	;ãƒ•ãƒ©ã‚°ã¯é€†æ–¹å‘ãƒªãƒ³ã‚¯
 	cli
 	chk_lnk	delflg2, enoexs7
 
@@ -1765,7 +1765,7 @@ delflg1:
 	mov	AL,[BX+102h]	;AL=tskpri
 	xchg	AL,BL		;AL=tsk_ptr
 				;BL=tskpri
-	ins_que			;ƒŠƒ“ƒN‚Í‹­§“I‚ÉØ‚é
+	ins_que			;ãƒªãƒ³ã‚¯ã¯å¼·åˆ¶çš„ã«åˆ‡ã‚‹
 
 	inc	BH		;BH=mlk_top+1
 	
@@ -1802,7 +1802,7 @@ polflg:
 	cli
 	chk_lnk	polflg2, enoexs8
 
-	test	byte ptr [BX+700h],8	;•¡”‘Ò‚¿‰ÂH
+	test	byte ptr [BX+700h],8	;è¤‡æ•°å¾…ã¡å¯ï¼Ÿ
 	jz	eobj8
 polflg2:
 	and	DI,DI
@@ -1881,11 +1881,11 @@ waiflg:
 
 	cnv_fid	eid8
 
-	mov	BH,mlk_top	;ƒtƒ‰ƒOƒLƒ…[‚ÍA‘OŒã‚ª‹t‚É‚È‚é
+	mov	BH,mlk_top	;ãƒ•ãƒ©ã‚°ã‚­ãƒ¥ãƒ¼ã¯ã€å‰å¾ŒãŒé€†ã«ãªã‚‹
 	cli
 	chk_lnk	waiflg2, enoexs8
 
-	test	byte ptr [BX+700h],8	;•¡”‘Ò‚¿‰ÂH
+	test	byte ptr [BX+700h],8	;è¤‡æ•°å¾…ã¡å¯ï¼Ÿ
 	jz	eobj8
 waiflg2:
 	and	DI,DI
@@ -1929,12 +1929,12 @@ waiflg6:
 	mov	CX,BX		;CX=wfmode
 	mov	BH,mlk_top
 	mov	BL,run_tsk
-				;AL‚Íflg_ptr
+				;ALã¯flg_ptr
 	
 	mov	[BX+101h],CL	;CL=wfmode
 	mov	byte ptr [BX+200h],4	;tskstat=wait
 	mov	[BX+300h],DI
-	mov	word ptr [BX+302h],0	;ƒŠƒ^[ƒ“ƒpƒ‰ƒ[ƒ^
+	mov	word ptr [BX+302h],0	;ãƒªã‚¿ãƒ¼ãƒ³ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
 	
 	xchg	AL,BL		;AL=run_tsk
 				;BL=flg_ptr
@@ -1988,7 +1988,7 @@ setflg:
 	mov	AH,AL
 	xor	AH,BL
 	jnz	setflg1
-				;‘Ò‚¿ƒ^ƒXƒN‚ª‚È‚¢
+				;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒãªã„
 	or	[BX+400h],DI	;FLG-pattern@TCB
 	pop_eok
 
@@ -1996,58 +1996,58 @@ setflg1:
 	test	AH,3
 	jz	enoexs9
 	
-	push	DX	;+8	;ƒfƒBƒXƒpƒbƒ`—pˆÓ
+	push	DX	;+8	;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒç”¨æ„
 	push	BP	;+4
 	push	ES	;+6
 	push	SI	;+2
 	push	DI	;SS:SP
 	
 	or	DI,[BX+400h]	;DI=FLG-pattern@TCB
-	mov	[BX+400h],DI	;FLG-pattern@TCB‚ðXV
+	mov	[BX+400h],DI	;FLG-pattern@TCBã‚’æ›´æ–°
 	mov	SI,200h
 	
-	or	CH,CL		;ƒfƒBƒXƒpƒbƒ`‹ÖŽ~ƒtƒ‰ƒO
+	or	CH,CL		;ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒç¦æ­¢ãƒ•ãƒ©ã‚°
 	and	CH,1
 	or	CH,BL		;CH=flg_ptr
-				;    b0:‚O‚ÅƒfƒBƒXƒpƒbƒ`‹–‰Â
-				;    b1:‚O‚ÅƒfƒBƒXƒpƒbƒ`—v‹
+				;    b0:ï¼ã§ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒè¨±å¯
+				;    b1:ï¼ã§ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒè¦æ±‚
 	mov	CL,2
-	mov	DL,AL		;DL=ŽŸ‚Ìƒ|ƒCƒ“ƒ^
+	mov	DL,AL		;DL=æ¬¡ã®ãƒã‚¤ãƒ³ã‚¿
 setflg2:
 	test	DL,CL		;CL=2
-	jnz	setflg5		;ƒLƒ…[‚ÌI‚í‚è
+	jnz	setflg5		;ã‚­ãƒ¥ãƒ¼ã®çµ‚ã‚ã‚Š
 	mov	BL,DL
 	mov	DX,[BX]		;DH=flgatr
-				;DL=ŽŸ‚Ìƒ|ƒCƒ“ƒ^
+				;DL=æ¬¡ã®ãƒã‚¤ãƒ³ã‚¿
 	test	DH,CL		;CL=2
 	jz	setflg3
-			;or‘Ò‚¿
+			;orå¾…ã¡
 	test	[BX+SI],DI
-	jz	setflg2		;ðŒ•s¬—§
+	jz	setflg2		;æ¡ä»¶ä¸æˆç«‹
 	jmp	setflg4
 setflg3:
-			;and ‘Ò‚¿
+			;and å¾…ã¡
 	not	DI
 	test	[BX+SI],DI
 	not	DI
-	jnz	setflg2		;ðŒ•s¬—§
+	jnz	setflg2		;æ¡ä»¶ä¸æˆç«‹
 setflg4:
-			;ðŒ¬—§ˆ—
+			;æ¡ä»¶æˆç«‹å‡¦ç†
 	mov	AL,BL		;AL=tskid
 	inc	BH		;BH=tskstat/wupcnt+1
 	mov	[BX],CL		;CL=2 (tskstat = ready)
 	les	BP,[BX+SI]	;[BX+SI] = tcb_top
 	mov	ES:[BP],DI	;ES:[BP]=DI
 	mov	BL,[BX+2]	;BL=tskpri
-			;‚`‚w‚ÍA‘Ò‚¿‚É‚Í‚¢‚é‚Æ‚«‚É‚O‚É‚µ‚Ä‚ ‚é
-	dec	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+			;ï¼¡ï¼¸ã¯ã€å¾…ã¡ã«ã¯ã„ã‚‹ã¨ãã«ï¼ã«ã—ã¦ã‚ã‚‹
+	dec	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	del_ins
 
 	inc	BH		;BH=mlk_top+1
 	
-	and	CH,0fdh		;CH b1=0  ƒfƒBƒXƒpƒbƒ`—v‹
+	and	CH,0fdh		;CH b1=0  ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒè¦æ±‚
 	test	DH,1
-	jz	setflg2		;ƒNƒŠƒAŽw’è‚È‚µ
+	jz	setflg2		;ã‚¯ãƒªã‚¢æŒ‡å®šãªã—
 	
 	mov	BL,CH
 	and	BL,0feh
@@ -2059,40 +2059,40 @@ setflg5:
 	xor	AX,AX
 	test	CH,3
 	jnz	setflg8
-				;—vƒfƒBƒXƒpƒbƒ`•ƒfƒBƒXƒpƒbƒ`‰Â”\
+				;è¦ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒï¼†ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒå¯èƒ½
 	
-	dec	BH		;BH=ƒƒCƒ“ƒŠƒ“ƒN
-	mov	BL,sca_top	;pri=1 ‚Ìƒ|ƒCƒ“ƒ^
+	dec	BH		;BH=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯
+	mov	BL,sca_top	;pri=1 ã®ãƒã‚¤ãƒ³ã‚¿
 	mov	DX,0ff03h	;0ffh for suscnt, 03h for pointer
 setflg6:
 	mov	CX,[BX]		;(CH=suscnt)
-				;CL=ŽŸ‚Ìƒ|ƒCƒ“ƒ^
+				;CL=æ¬¡ã®ãƒã‚¤ãƒ³ã‚¿
 	
-	xchg	CL,BL		;BL=ŽŸ‚Ìƒ|ƒCƒ“ƒ^
-				;CL=Œ»ƒ|ƒCƒ“ƒ^
+	xchg	CL,BL		;BL=æ¬¡ã®ãƒã‚¤ãƒ³ã‚¿
+				;CL=ç¾ãƒã‚¤ãƒ³ã‚¿
 	test	CX,DX
 	jnz	setflg6		;suspended or point ready-que
 	
-			;CL= ŽÀs‚·‚×‚«ƒ^ƒXƒN
+			;CL= å®Ÿè¡Œã™ã¹ãã‚¿ã‚¹ã‚¯
 	
-	mov	BL,run_tsk	;BL= Œ»ÝŽÀs’†‚Ìƒ^ƒXƒN
-	cmp	BL,CL		;—vƒfƒBƒXƒpƒbƒ`H
+	mov	BL,run_tsk	;BL= ç¾åœ¨å®Ÿè¡Œä¸­ã®ã‚¿ã‚¹ã‚¯
+	cmp	BL,CL		;è¦ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒï¼Ÿ
 	jz	setflg7
 	
-	mov	BH,tcb_top	;ƒXƒ^ƒbƒNƒ|ƒCƒ“ƒ^‚ð•Û‘¶
-	mov	[BX-0feh],AX	;ƒ^ƒXƒN‚ÌƒXƒ^ƒbƒN‚ÉƒŒƒWƒXƒ^‚ð‘Þ”ð
+	mov	BH,tcb_top	;ã‚¹ã‚¿ãƒƒã‚¯ãƒã‚¤ãƒ³ã‚¿ã‚’ä¿å­˜
+	mov	[BX-0feh],AX	;ã‚¿ã‚¹ã‚¯ã®ã‚¹ã‚¿ãƒƒã‚¯ã«ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’é€€é¿
 	mov	AX,SS
 	mov	[BX],SP
 	mov	[BX+2],AX	;AX=SS
 	
-	mov	BL,CL		;BL= runó‘Ô‚Ìƒ^ƒXƒN
+	mov	BL,CL		;BL= runçŠ¶æ…‹ã®ã‚¿ã‚¹ã‚¯
 	
 		;BX point the task which status is run
 	
-	les	SP,[BX]		;ƒXƒ^ƒbƒN‚ðØ‚è‘Ö‚¦‚é
+	les	SP,[BX]		;ã‚¹ã‚¿ãƒƒã‚¯ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
 	mov	AX,ES
 	mov	SS,AX
-setflg7:		;BL= runó‘Ô‚Ìƒ^ƒXƒN
+setflg7:		;BL= runçŠ¶æ…‹ã®ã‚¿ã‚¹ã‚¯
 	mov	run_tsk,BL
 	mov	BH,tcb_top+1
 	mov	AX,[BX]
@@ -2127,18 +2127,18 @@ rcvmsg:
 	chk_lnk	rcvmsg3, enoexs10
 
 rcvmsg2:
-			;ƒƒbƒZ[ƒW‘Ò‚¿‚É“ü‚é
+			;ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸å¾…ã¡ã«å…¥ã‚‹
 	mov	BH,mlk_top+1
 	ent_wai
 rcvmsg3:
-			;‘Ò‚¿ƒ^ƒXƒN‚ª‚È‚¢
+			;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒãªã„
 	mov	BH,mlq_top
 	mov	AL,[BX]		;AL=nxtlnk
 	cmp	AL,BL
 	jz	rcvmsg2
 	
 	mov	BL,AL
-	les	SI,[BX+100h]	;ES:SI‚ÉƒƒbƒZ[ƒW‚ðŽó‚¯Žæ‚é
+	les	SI,[BX+100h]	;ES:SIã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å—ã‘å–ã‚‹
 	del_mlq
 
 	pop_eok
@@ -2176,7 +2176,7 @@ prcvmsg2:
 	jz	prcvmsg1
 	
 	mov	BL,AL
-	les	SI,[BX+100h]	;ES:SI‚ÉƒƒbƒZ[ƒW‚ðŽó‚¯Žæ‚é
+	les	SI,[BX+100h]	;ES:SIã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’å—ã‘å–ã‚‹
 	del_mlq
 
 	pop_eok
@@ -2200,8 +2200,8 @@ sndmsg:
 
 	xor	BL,AL		;BL=nxt_ptr
 	mov	AL,BL
-	lds	BX,[BX+400h]	;ƒXƒ^ƒbƒNƒ|ƒCƒ“ƒ^
-	mov	[BX+2],SI	;ƒƒbƒZ[ƒW‚ð“n‚·
+	lds	BX,[BX+400h]	;ã‚¹ã‚¿ãƒƒã‚¯ãƒã‚¤ãƒ³ã‚¿
+	mov	[BX+2],SI	;ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ¸¡ã™
 	mov	[BX+4],ES
 	
 	mov	BX,CS
@@ -2216,21 +2216,21 @@ sndmsg1:
 	mov	AL,BL		;AL=mbx_ptr
 	
 	xor	BL,BL
-	mov	AH,4		;ƒT[ƒ`—p‘•ª
+	mov	AH,4		;ã‚µãƒ¼ãƒç”¨å¢—åˆ†
 sndmsg2:
-			;ƒ[ƒ‹ƒŠƒ“ƒN‚Ì‚ ‚«ƒT[ƒ`
+			;ãƒ¡ãƒ¼ãƒ«ãƒªãƒ³ã‚¯ã®ã‚ãã‚µãƒ¼ãƒ
 	cmp	[BX],BL
 	jz	sndmsg3
 	
-	sub	BL,AH		;ŽŸ‚ÌƒŠƒ“ƒN
+	sub	BL,AH		;æ¬¡ã®ãƒªãƒ³ã‚¯
 	jnz	sndmsg2
 	pop_err	cqovr
 
 sndmsg3:
-	mov	[BX+100h],SI	;ƒƒbƒZ[ƒW‚ð•Û‘¶
+	mov	[BX+100h],SI	;ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’ä¿å­˜
 	mov	[BX+102h],ES
 				;AL=mbx_ptr
-				;BL=ƒ[ƒ‹ƒGƒ“ƒgƒŠ
+				;BL=ãƒ¡ãƒ¼ãƒ«ã‚¨ãƒ³ãƒˆãƒª
 	xchg	AL,BL
 	ins_mlq
 
@@ -2261,7 +2261,7 @@ delmbx1:
 	xchg	AL,BL		;AL=tsk_ptr
 				;BL=tskpri
 	inc	BH		;BH=mlk_top+1
-	ins_que			;ƒŠƒ“ƒN‚Í‹­§“I‚ÉØ‚é
+	ins_que			;ãƒªãƒ³ã‚¯ã¯å¼·åˆ¶çš„ã«åˆ‡ã‚‹
 
 	mov	BL,CL
 	test	BL,3
@@ -2354,16 +2354,16 @@ getver:
 	mov	AX,ES
 	mov	DS,AX
 	
-	mov	word ptr [SI],0		;maker = ŽÀŒ±ƒVƒXƒeƒ€
-	mov	word ptr [SI+2],-1	;id    = –¢’è‹`
-	mov	word ptr [SI+4],5300h	;spver = ƒÊITRON 3.00
-	mov	word ptr [SI+6],-1	;prver = –¢’è‹`
-	mov	word ptr [SI+8],-1	;prno0 = –¢’è‹`
-	mov	word ptr [SI+0ah],-1	;prno1 = –¢’è‹`
-	mov	word ptr [SI+0ch],-1	;prno2 = –¢’è‹`
-	mov	word ptr [SI+0eh],-1	;prno3 = –¢’è‹`
+	mov	word ptr [SI],0		;maker = å®Ÿé¨“ã‚·ã‚¹ãƒ†ãƒ 
+	mov	word ptr [SI+2],-1	;id    = æœªå®šç¾©
+	mov	word ptr [SI+4],5300h	;spver = Î¼ITRON 3.00
+	mov	word ptr [SI+6],-1	;prver = æœªå®šç¾©
+	mov	word ptr [SI+8],-1	;prno0 = æœªå®šç¾©
+	mov	word ptr [SI+0ah],-1	;prno1 = æœªå®šç¾©
+	mov	word ptr [SI+0ch],-1	;prno2 = æœªå®šç¾©
+	mov	word ptr [SI+0eh],-1	;prno3 = æœªå®šç¾©
 	mov	word ptr [SI+10h],60h	;cpu   = 8086
-	mov	word ptr [SI+12h],4000h	;var   = ƒŒƒxƒ‹R
+	mov	word ptr [SI+12h],4000h	;var   = ãƒ¬ãƒ™ãƒ«R
 	
 	pop_eok
 
@@ -2386,7 +2386,7 @@ refsem:
 
 	mov	BH,mlk_top
 	cli
-	chk_lnk	refsem1, enoexs12	;nolnk‚ÌŽžAAL=0‚É‚È‚é
+	chk_lnk	refsem1, enoexs12	;nolnkã®æ™‚ã€AL=0ã«ãªã‚‹
 
 	xor	AL,BL		;AL=nxt_ptr
 	shr	AL,1
@@ -2436,7 +2436,7 @@ refflg:
 	;	          unuid
 	cnv_fid	eid12
 
-	mov	BH,mlk_top+1	;wtsk‚ðl—¶‚µ‚ÄAŒã‚ë‚©‚çŒ©‚é
+	mov	BH,mlk_top+1	;wtskã‚’è€ƒæ…®ã—ã¦ã€å¾Œã‚ã‹ã‚‰è¦‹ã‚‹
 	cli
 	chk_lnk	refflg1, enoexs12
 
@@ -2586,7 +2586,7 @@ reftsk:
 	jnz	reftsk1		;not dormant
 	
 		;dormant
-	xor	AH,AH		;wupcnt ‚Í–³Ž‹‚·‚é
+	xor	AH,AH		;wupcnt ã¯ç„¡è¦–ã™ã‚‹
 	mov	ES:[SI+6],AX	;tskstat
 	
 	mov	AL,CH		;itskpri
@@ -2679,35 +2679,35 @@ int63h2:
 	mov	DS,BX
 
 
-disp:		;DS,BX,CX ‚Í•Û‘¶‚³‚ê‚Ä‚¢‚é‚à‚Ì‚Æ‚·‚é
-		;AX‚ÍÝ’è‚·‚é‚±‚Æ
+disp:		;DS,BX,CX ã¯ä¿å­˜ã•ã‚Œã¦ã„ã‚‹ã‚‚ã®ã¨ã™ã‚‹
+		;AXã¯è¨­å®šã™ã‚‹ã“ã¨
 	
-		;ƒŒƒfƒBƒLƒ…[‚ð‘–¸
+		;ãƒ¬ãƒ‡ã‚£ã‚­ãƒ¥ãƒ¼ã‚’èµ°æŸ»
 	push	DX
 	
-	mov	BH,mlk_top	;ƒƒCƒ“ƒŠƒ“ƒN
-	mov	BL,sca_top	;pri=1 ‚ÌŽŸ‚Ìƒ|ƒCƒ“ƒ^
+	mov	BH,mlk_top	;ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯
+	mov	BL,sca_top	;pri=1 ã®æ¬¡ã®ãƒã‚¤ãƒ³ã‚¿
 	mov	DX,0ff03h	;0ffh for suscnt, 03h for pointer
 	
 disp2:
 	mov	CX,[BX]		;(CH=suscnt)
-				;CL=ŽŸ‚Ìƒ|ƒCƒ“ƒ^
+				;CL=æ¬¡ã®ãƒã‚¤ãƒ³ã‚¿
 	
-	xchg	CL,BL		;BL=ŽŸ‚Ìƒ|ƒCƒ“ƒ^
-				;CL=Œ»ƒ|ƒCƒ“ƒ^
+	xchg	CL,BL		;BL=æ¬¡ã®ãƒã‚¤ãƒ³ã‚¿
+				;CL=ç¾ãƒã‚¤ãƒ³ã‚¿
 	
 	test	CX,DX
 	jnz	disp2		;suspended or point ready-que
 	
-			;CL= ŽÀs‚·‚×‚«ƒ^ƒXƒN
+			;CL= å®Ÿè¡Œã™ã¹ãã‚¿ã‚¹ã‚¯
 	
-	mov	BL,run_tsk	;BL= Œ»ÝŽÀs’†‚Ìƒ^ƒXƒN
-	cmp	BL,CL		;—vƒfƒBƒXƒpƒbƒ`H
+	mov	BL,run_tsk	;BL= ç¾åœ¨å®Ÿè¡Œä¸­ã®ã‚¿ã‚¹ã‚¯
+	cmp	BL,CL		;è¦ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒï¼Ÿ
 	jz	disp3
-				;TCB‚ÉAX‚ð‘Þ”ð
+				;TCBã«AXã‚’é€€é¿
 	
-	mov	BH,tcb_top	;ƒXƒ^ƒbƒNƒ|ƒCƒ“ƒ^‚ð•Û‘¶
-	mov	[BX-0feh],AX	;ƒ^ƒXƒN‚ÌƒXƒ^ƒbƒN‚ÉƒŒƒWƒXƒ^‚ð‘Þ”ð
+	mov	BH,tcb_top	;ã‚¹ã‚¿ãƒƒã‚¯ãƒã‚¤ãƒ³ã‚¿ã‚’ä¿å­˜
+	mov	[BX-0feh],AX	;ã‚¿ã‚¹ã‚¯ã®ã‚¹ã‚¿ãƒƒã‚¯ã«ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’é€€é¿
 	push	BP	;+6
 	push	ES	;+4
 	push	SI	;+2
@@ -2717,12 +2717,12 @@ disp2:
 	mov	[BX],SP
 	mov	[BX+2],AX	;AX=SS
 	
-	mov	BL,CL		;BL= runó‘Ô‚Ìƒ^ƒXƒN
+	mov	BL,CL		;BL= runçŠ¶æ…‹ã®ã‚¿ã‚¹ã‚¯
 	mov	run_tsk,CL
 	
 		;BX point the task which status is run
 	
-	les	SP,[BX]		;ƒXƒ^ƒbƒN‚ðØ‚è‘Ö‚¦‚é
+	les	SP,[BX]		;ã‚¹ã‚¿ãƒƒã‚¯ã‚’åˆ‡ã‚Šæ›¿ãˆã‚‹
 	mov	AX,ES
 	mov	SS,AX
 	
@@ -2730,7 +2730,7 @@ disp2:
 	
 	mov	AX,[BX+2]
 	
-	pop	DI		;ƒ^ƒXƒN‚ÌƒŒƒWƒXƒ^‚ð•œ‹Œ
+	pop	DI		;ã‚¿ã‚¹ã‚¯ã®ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’å¾©æ—§
 	pop	SI
 	pop	ES
 	pop	BP
@@ -2741,32 +2741,32 @@ disp3:
 
 
 tskid0:
-				;ŽÀs‚·‚éƒ^ƒXƒN‚ª‚È‚¢‚Æ‚«‚Ìƒ_ƒ~[ˆ——p
+				;å®Ÿè¡Œã™ã‚‹ã‚¿ã‚¹ã‚¯ãŒãªã„ã¨ãã®ãƒ€ãƒŸãƒ¼å‡¦ç†ç”¨
 	jmp	tskid0
 
 
 
-		;‚±‚±‚©‚çƒXƒ^ƒbƒNƒGƒŠƒA
+		;ã“ã“ã‹ã‚‰ã‚¹ã‚¿ãƒƒã‚¯ã‚¨ãƒªã‚¢
 bottom:
 	;db	64*512+18h dup (?)
 	
 
-ini_tcb:	;‚s‚b‚a‰Šú‰»
-		;AX,BX,CX,DX,SI,DI,DS‚Í”j‰ó‚³‚ê‚é
+ini_tcb:	;ï¼´ï¼£ï¼¢åˆæœŸåŒ–
+		;AX,BX,CX,DX,SI,DI,DSã¯ç ´å£Šã•ã‚Œã‚‹
 	
 	mov	AX,CS
 	mov	DS,AX
 	
 	sti
 	
-	mov	DX,offset mes_ini	;‹N“®ƒƒbƒZ[ƒW•\Ž¦
+	mov	DX,offset mes_ini	;èµ·å‹•ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸è¡¨ç¤º
 	mov	AH,9
 	int	21h
 	
 	cli
 	
 	mov	AX,0706h
-	mov	BH,mlk_top		;BX=ƒƒCƒ“ƒŠƒ“ƒN
+	mov	BH,mlk_top		;BX=ãƒ¡ã‚¤ãƒ³ãƒªãƒ³ã‚¯
 	xor	BL,BL
 	mov	CX,0020h
 	mov	DX,0404h
@@ -2831,13 +2831,13 @@ ini_tcb5:
 	mov	BL,3
 	mov	AL,0
 	
-	mov	BH,mlk_top+1	;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	mov	BH,mlk_top+1	;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	ins_que
 
 	mov	BL,7fh
 	mov	AL,4
 	
-	inc	BH		;BH=ƒoƒbƒNƒŠƒ“ƒN‚ÌƒAƒhƒŒƒX
+	inc	BH		;BH=ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã®ã‚¢ãƒ‰ãƒ¬ã‚¹
 	ins_que
 
 	mov	BH,tcb_top
@@ -2847,13 +2847,13 @@ ini_tcb5:
 	mov	word ptr [BX-1fch],102h	;tskid1=ready
 	mov	word ptr [BX-1fah],7f7fh	;tskid1 pri=31
 	
-			;ˆÈ‰ºtskid=0‚ÌÝ’è
+			;ä»¥ä¸‹tskid=0ã®è¨­å®š
 	mov	CX,CS
 	mov	AH,high offset bottom
 	add	AH,2
 	xor	AL,AL
 	
-	mov	[BX],AX		;ƒXƒ^ƒbƒN‚ðÝ’è
+	mov	[BX],AX		;ã‚¹ã‚¿ãƒƒã‚¯ã‚’è¨­å®š
 	mov	[BX+2],CX
 	
 	xchg	AX,BX

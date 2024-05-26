@@ -1,5 +1,5 @@
 ;
-;@@@@‚`‚r‚t‚q‚`|‚h@ƒJ[ƒlƒ‹ƒfƒoƒbƒOx‰‡ƒvƒƒOƒ‰ƒ€
+;ã€€ã€€ã€€ã€€ï¼¡ï¼³ï¼µï¼²ï¼¡âˆ’ï¼©ã€€ã‚«ãƒ¼ãƒãƒ«ãƒ‡ãƒãƒƒã‚°æ”¯æ´ãƒ—ãƒ­ã‚°ãƒ©ãƒ 
 ;
 ;                  Copyright (c) 1994 Mineyuki Kimoto
 ;
@@ -44,14 +44,14 @@ loop1:
 err_nex:
 	mov	AX,CS
 	mov	DS,AX
-	mov	DX,offset mes_nex	;ˆÙíI—¹ƒƒbƒZ[ƒW
+	mov	DX,offset mes_nex	;ç•°å¸¸çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	mov	AH,9
 	int	21h
 	
 	mov	AX,0
 	int	21h
 err_ct:
-	mov	DX,offset mes_ct	;ˆÙíI—¹ƒƒbƒZ[ƒW
+	mov	DX,offset mes_ct	;ç•°å¸¸çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	mov	AH,9
 	int	21h
 	
@@ -107,21 +107,21 @@ loop3:
 	jmp	cmd
 	
 err_cs:
-	mov	DX,offset mes_cs	;ˆÙíI—¹ƒƒbƒZ[ƒW
+	mov	DX,offset mes_cs	;ç•°å¸¸çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	mov	AH,9
 	int	21h
 	
 	mov	AX,0
 	int	21h
 err_cf:
-	mov	DX,offset mes_cf	;ˆÙíI—¹ƒƒbƒZ[ƒW
+	mov	DX,offset mes_cf	;ç•°å¸¸çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	mov	AH,9
 	int	21h
 	
 	mov	AX,0
 	int	21h
 err_cm:
-	mov	DX,offset mes_cm	;ˆÙíI—¹ƒƒbƒZ[ƒW
+	mov	DX,offset mes_cm	;ç•°å¸¸çµ‚äº†ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸
 	mov	AH,9
 	int	21h
 	
@@ -137,7 +137,7 @@ cmd:
 	
 	get_tid
 	
-	mov	AL,DL		;tskid ‚ğƒvƒƒ“ƒvƒg‚É•\¦
+	mov	AL,DL		;tskid ã‚’ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã«è¡¨ç¤º
 	call	hex_cnv
 	mov	word ptr mes_pmt+7,AX
 	
@@ -145,7 +145,7 @@ cmd:
 	mov	AH,9
 	int	21h
 	
-	mov	DX,offset pk_com	;ƒRƒ}ƒ“ƒh‚ğ“ü—Í
+	mov	DX,offset pk_com	;ã‚³ãƒãƒ³ãƒ‰ã‚’å…¥åŠ›
 	mov	AH,0ah
 	int	21h
 	
@@ -153,7 +153,7 @@ cmd:
 	mov	AH,9
 	int	21h
 	
-	mov	BL,pk_com+1	;BL=•¶š”
+	mov	BL,pk_com+1	;BL=æ–‡å­—æ•°
 	
 	cmp	BL,1
 	jz	com_sin
@@ -162,14 +162,14 @@ cmd:
 	jnc	sys_cal
 	
 err_com:
-	mov	DX,offset mes_ukc	;ƒRƒ}ƒ“ƒhƒGƒ‰[
+	mov	DX,offset mes_ukc	;ã‚³ãƒãƒ³ãƒ‰ã‚¨ãƒ©ãƒ¼
 	mov	AH,9
 	int	21h
 	
 	jmp	cmd
 	
 com_sin:
-			;‚P•¶šƒRƒ}ƒ“ƒh
+			;ï¼‘æ–‡å­—ã‚³ãƒãƒ³ãƒ‰
 	mov	AL,pk_com+2
 	cmp	AL,'q'
 	jz	com__q
@@ -200,7 +200,7 @@ com_sin5:
 	
 	
 com__q:
-	mov	DX,offset mes_ext	;³íI—¹
+	mov	DX,offset mes_ext	;æ­£å¸¸çµ‚äº†
 	mov	AH,9
 	int	21h
 	
@@ -229,7 +229,7 @@ sys_cal1:
 sys_cal2:
 	mov	AL,[DI+7]
 	
-	mov	CL,BL		;CL=ƒRƒ}ƒ“ƒh‚Ì•¶š”
+	mov	CL,BL		;CL=ã‚³ãƒãƒ³ãƒ‰ã®æ–‡å­—æ•°
 	cmp	CL,0ah
 	jc	sys_int
 	
@@ -340,7 +340,7 @@ r_tit1:
 	int	21h
 	
 	mov	CH,[ES:run_tsk]
-	mov	BX,103h		;pri=1‚Ìƒ|ƒCƒ“ƒ^
+	mov	BX,103h		;pri=1ã®ãƒã‚¤ãƒ³ã‚¿
 r_pri:
 	mov	AL,ES:[BX]	;AL=nxt_ptr
 	xchg	AL,BL
@@ -348,8 +348,8 @@ r_pri:
 	test	BL,3
 	jnz	r_pri
 	
-			;‚»‚Ìpri ‚Ìæ“ªƒ^ƒXƒN
-	shr	AL,1	;AL=Œ»pri
+			;ãã®pri ã®å…ˆé ­ã‚¿ã‚¹ã‚¯
+	shr	AL,1	;AL=ç¾pri
 	shr	AL,1
 	inc	AL
 	and	AL,1fh
@@ -458,7 +458,7 @@ s_nxtsem:
 	mov	AL,ES:[BX]
 	
 	xor	AL,BL
-	jz	s_notsk		;‘Ò‚¿ƒ^ƒXƒN‚ª‚È‚¢
+	jz	s_notsk		;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒãªã„
 	test	AL,3
 	jnz	s_waiq
 	
@@ -871,7 +871,7 @@ m_nxtmbx:
 	mov	AL,ES:[BX]
 	
 	xor	AL,BL
-	jz	m_notsk		;‘Ò‚¿ƒ^ƒXƒN‚ª‚È‚¢
+	jz	m_notsk		;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒãªã„
 	test	AL,3
 	jnz	m_waiq
 	
@@ -1009,7 +1009,7 @@ hex_cnv	proc	near
 		;       AL- MSB ascii
 	
 	mov	AH,AL
-	shr	AH,1		;‚ ‚Æ‚Å XCHG ‚·‚é‚Ì‚ÅA‚±‚±‚Å‚Í AH ‚ª MSB
+	shr	AH,1		;ã‚ã¨ã§ XCHG ã™ã‚‹ã®ã§ã€ã“ã“ã§ã¯ AH ãŒ MSB
 	shr	AH,1
 	shr	AH,1
 	shr	AH,1
@@ -1071,43 +1071,43 @@ wrd_cnv	endp
 	
 	
 mes_opn	db	0dh, 0ah
-	db	'@@^¡@¡PP¡@¡PP¡@¡_@Q@¡@ƒÊITRON 3.0 d—l@Ø±ÙÀ²Ñ¥ÏÙÁÀ½¸ÓÆÀ', 0dh, 0ah
-	db	'@^@¡QQ¡@¡Q¡@¡QQ¡@_P@¡@Copyright (c) Mineyuki Kimoto 1994', 0dh, 0ah
+	db	'ã€€ã€€ï¼â– ã€€â– â€¾â€¾â– ã€€â– â€¾â€¾â– ã€€â– ï¼¼ã€€ï¼¿ã€€â– ã€€Î¼ITRON 3.0 ä»•æ§˜ã€€ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ãƒ»ãƒãƒ«ãƒã‚¿ã‚¹ã‚¯ãƒ¢ãƒ‹ã‚¿', 0dh, 0ah
+	db	'ã€€ï¼ã€€â– ï¼¿ï¼¿â– ã€€â– ï¼¿â– ã€€â– ï¼¿ï¼¿â– ã€€ï¼¼â€¾ã€€â– ã€€Copyright (c) Mineyuki Kimoto 1994', 0dh, 0ah
 	db	0dh, 0ah
-	db	'@@@@@@‚`‚r‚t‚q‚`|‚h ƒVƒXƒeƒ€ƒR[ƒ‹@‚b‚k‚h ver 0.14.00 - ƒ¿'
+	db	'ã€€ã€€ã€€ã€€ã€€ã€€ï¼¡ï¼³ï¼µï¼²ï¼¡âˆ’ï¼© ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ã€€ï¼£ï¼¬ï¼© ver 0.14.00 - Î±'
 	db	0dh, 0ah, '$'
 	
-mes_nex	db	'‚`‚r‚t‚q‚`|‚h‚ªí’“‚µ‚Ä‚¢‚Ü‚¹‚ñB', 0dh, 0ah, '$'
+mes_nex	db	'ï¼¡ï¼³ï¼µï¼²ï¼¡âˆ’ï¼©ãŒå¸¸é§ã—ã¦ã„ã¾ã›ã‚“ã€‚', 0dh, 0ah, '$'
 	
-mes_ct	db	'ƒ^ƒXƒN‚Ì¶¬‚É¸”s‚µ‚Ü‚µ‚½BiˆÙíI—¹j', 0dh, 0ah, '$'
+mes_ct	db	'ã‚¿ã‚¹ã‚¯ã®ç”Ÿæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚ï¼ˆç•°å¸¸çµ‚äº†ï¼‰', 0dh, 0ah, '$'
 	
-mes_cs	db	'ƒZƒ}ƒtƒH‚Ì¶¬‚É¸”s‚µ‚Ü‚µ‚½BiˆÙíI—¹j', 0dh, 0ah, '$'
+mes_cs	db	'ã‚»ãƒãƒ•ã‚©ã®ç”Ÿæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚ï¼ˆç•°å¸¸çµ‚äº†ï¼‰', 0dh, 0ah, '$'
 	
-mes_cf	db	'ƒCƒxƒ“ƒgƒtƒ‰ƒO‚Ì¶¬‚É¸”s‚µ‚Ü‚µ‚½BiˆÙíI—¹j'
+mes_cf	db	'ã‚¤ãƒ™ãƒ³ãƒˆãƒ•ãƒ©ã‚°ã®ç”Ÿæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚ï¼ˆç•°å¸¸çµ‚äº†ï¼‰'
 	dw	0dh, 0ah, '$'
 	
-mes_cm	db	'ƒ[ƒ‹ƒ{ƒbƒNƒX‚Ì¶¬‚É¸”s‚µ‚Ü‚µ‚½BiˆÙíI—¹j'
+mes_cm	db	'ãƒ¡ãƒ¼ãƒ«ãƒœãƒƒã‚¯ã‚¹ã®ç”Ÿæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚ï¼ˆç•°å¸¸çµ‚äº†ï¼‰'
 	
 mes_cr	db	0dh, 0ah, '$'
 	
 mes_pmt	db	'tskid= %% > $'
 		;0123456789abcdef01234
 	
-mes_ukc	db	'ƒRƒ}ƒ“ƒh‚ª•ª‚©‚è‚Ü‚¹‚ñB'
+mes_ukc	db	'ã‚³ãƒãƒ³ãƒ‰ãŒåˆ†ã‹ã‚Šã¾ã›ã‚“ã€‚'
 	db	0dh, 0ah, '$'
 	
-mes_ukp	db	'”’l‚Ì•\‹L‚ª³‚µ‚­‚ ‚è‚Ü‚¹‚ñB@ƒRƒ}ƒ“ƒh‘® : ???_??? ?? ??'
+mes_ukp	db	'æ•°å€¤ã®è¡¨è¨˜ãŒæ­£ã—ãã‚ã‚Šã¾ã›ã‚“ã€‚ã€€ã‚³ãƒãƒ³ãƒ‰æ›¸å¼ : ???_??? ?? ??'
 	db	0dh, 0ah, '$'
 	
 mes_sts	db	'eok         BX = %%%% / DX = %%%%'
 		;0123456789abcdef0123456789abcdef01
 	db	0dh, 0ah, '$'
 	
-mes_uke	db	'•s³´×°º°ÄŞ AX = %%%%'
+mes_uke	db	'ä¸æ­£ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰ AX = %%%%'
 		;0123456789abcdef012345
 	db	0dh, 0ah, '$'
 	
-mes_ext	db	'I—¹‚µ‚Ü‚µ‚½B‚¨”æ‚ê‚³‚Ü‚Å‚µ‚½B'
+mes_ext	db	'çµ‚äº†ã—ã¾ã—ãŸã€‚ãŠç–²ã‚Œã•ã¾ã§ã—ãŸã€‚'
 	db	0dh, 0ah, '$'
 	
 mes_r1	db	'ready-que status (dispatch $'

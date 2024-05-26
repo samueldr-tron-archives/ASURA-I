@@ -152,7 +152,7 @@ r_tit1:
 	int	21h
 	
 	mov	CH,run_tsk
-	mov	BX,ofs_tbl+103h		;pri=1‚Ìƒ|ƒCƒ“ƒ^
+	mov	BX,ofs_tbl+103h		;pri=1ã®ãƒã‚¤ãƒ³ã‚¿
 r_pri:
 	mov	AL,[BX]	;AL=nxt_ptr
 	xchg	AL,BL
@@ -160,8 +160,8 @@ r_pri:
 	test	BL,3
 	jnz	r_pri
 	
-			;‚»‚Ìpri ‚Ìæ“ªƒ^ƒXƒN
-	shr	AL,1	;AL=Œ»pri
+			;ãã®pri ã®å…ˆé ­ã‚¿ã‚¹ã‚¯
+	shr	AL,1	;AL=ç¾pri
 	shr	AL,1
 	inc	AL
 	and	AL,1fh
@@ -256,7 +256,7 @@ s_nxtsem:
 	mov	AL,[BX]
 	
 	xor	AL,BL
-	jz	s_notsk		;‘Ò‚¿ƒ^ƒXƒN‚ª‚È‚¢
+	jz	s_notsk		;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒãªã„
 	test	AL,3
 	jnz	s_waiq
 	
@@ -525,7 +525,7 @@ m_nxtmbx:
 	mov	AL,[BX]
 	
 	xor	AL,BL
-	jz	m_notsk		;‘Ò‚¿ƒ^ƒXƒN‚ª‚È‚¢
+	jz	m_notsk		;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒãªã„
 	test	AL,3
 	jnz	m_waiq
 	
@@ -652,7 +652,7 @@ hex_cnv	proc	near
 		;       AL- MSB ascii
 	
 	mov	AH,AL
-	shr	AH,1		;‚ ‚Æ‚Å XCHG ‚·‚é‚Ì‚ÅA‚±‚±‚Å‚Í AH ‚ª MSB
+	shr	AH,1		;ã‚ã¨ã§ XCHG ã™ã‚‹ã®ã§ã€ã“ã“ã§ã¯ AH ãŒ MSB
 	shr	AH,1
 	shr	AH,1
 	shr	AH,1
@@ -673,10 +673,10 @@ hex_cnv	proc	near
 	ret
 hex_cnv	endp
 	
-mes_t1	db	'@@^¡@¡PP¡@¡PP¡@¡_@Q@¡@ƒÊITRON 3.0 d—l@Ø±ÙÀ²Ñ¥ÏÙÁÀ½¸ÓÆÀ', 0dh, 0ah
-	db	'@^@¡QQ¡@¡Q¡@¡QQ¡@_P@¡@Copyright (c) Mineyuki Kimoto 1994', 0dh, 0ah
+mes_t1	db	'ã€€ã€€ï¼â– ã€€â– â€¾â€¾â– ã€€â– â€¾â€¾â– ã€€â– ï¼¼ã€€ï¼¿ã€€â– ã€€Î¼ITRON 3.0 ä»•æ§˜ã€€ãƒªã‚¢ãƒ«ã‚¿ã‚¤ãƒ ãƒ»ãƒãƒ«ãƒã‚¿ã‚¹ã‚¯ãƒ¢ãƒ‹ã‚¿', 0dh, 0ah
+	db	'ã€€ï¼ã€€â– ï¼¿ï¼¿â– ã€€â– ï¼¿â– ã€€â– ï¼¿ï¼¿â– ã€€ï¼¼â€¾ã€€â– ã€€Copyright (c) Mineyuki Kimoto 1994', 0dh, 0ah
 	db	0dh, 0ah
-	db	'@@@@@@@‚`‚r‚t‚q‚`|‚h ó‘Ô•\¦ƒvƒƒOƒ‰ƒ€ ver 1.00.00 - ƒ¿'
+	db	'ã€€ã€€ã€€ã€€ã€€ã€€ã€€ï¼¡ï¼³ï¼µï¼²ï¼¡âˆ’ï¼© çŠ¶æ…‹è¡¨ç¤ºãƒ—ãƒ­ã‚°ãƒ©ãƒ  ver 1.00.00 - Î±'
 	db	0dh, 0ah, 0dh, 0ah
 	
 	db	'task status', 0dh, 0ah, '        '

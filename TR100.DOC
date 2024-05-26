@@ -1,29 +1,29 @@
-�@�g���[�j���O�p�̂b�k�h�itr.com�j�ł����A�N������ƁA�^�X�N�h�c���Q�`
-�W�A�Z�}�t�H�̂P�`�S�A�C�x���g�t���O�̂P�`�S�A���[���{�b�N�X�̂P�`�S��
-���ꂼ�ꐶ�����A�v�����v�g��\�����ăR�}���h���͑҂��ɂȂ�܂��B
+　トレーニング用のＣＬＩ（tr.com）ですが、起動すると、タスクＩＤ＝２〜
+８、セマフォの１〜４、イベントフラグの１〜４、メールボックスの１〜４を
+それぞれ生成し、プロンプトを表示してコマンド入力待ちになります。
 
-�b�E�V�X�e���R�[��
-�btskid = 01 > $$$_$$$ $$ $$
-�b
-�b�@�@�@�S�āA�������œ��͂���B
-�b�@�@�@�@preq_sem �� pol_sem
-�b�@�@�@�@prcv_msg �� pol_msg
-�b�@�@�@�@frsm_tsk �� frm_tsk �Ƃ���B
-�b
-�b�@�@�@�ŏ���$$��BX���W�X�^�A����$$��DX���W�X�^�̐ݒ�ŁA�Q���̂P�U
-�b�@�@�i���œ��͂���B�P���������Ȃ��ꍇ�́A���̒l�������W�X�^�ɐ�
-�b�@�@�肳���B
-�b
-�b�E�b�k�h�ɑ΂���R�}���h
-�b�@q (quit)
-�b�@r (show ready-que)
-�b�@t (show task-status)
-�b�@s (show semaphore-status)
-�b�@f (show flag-status)
-�b�@m (show mailbox-status)
+｜・システムコール
+｜tskid = 01 > $$$_$$$ $$ $$
+｜
+｜　　　全て、小文字で入力する。
+｜　　　　preq_sem → pol_sem
+｜　　　　prcv_msg → pol_msg
+｜　　　　frsm_tsk → frm_tsk とする。
+｜
+｜　　　最初の$$はBXレジスタ、次の$$はDXレジスタの設定で、２桁の１６
+｜　　進数で入力する。１つしか書かない場合は、その値が両レジスタに設
+｜　　定される。
+｜
+｜・ＣＬＩに対するコマンド
+｜　q (quit)
+｜　r (show ready-que)
+｜　t (show task-status)
+｜　s (show semaphore-status)
+｜　f (show flag-status)
+｜　m (show mailbox-status)
            
-�@�Ⴆ�΁Achg_pri 1c 02 �Ɠ��͂���ƁABX���W�X�^��01ch���ADX���W�X�^��
-�@�@�@�@�@~~~~~~~~~~~~~
-02h �����ꂼ��i�[����ăV�X�e���R�[�����Ă΂�A02�̃^�X�N�̗D��x��01ch
-�ɕύX����܂��B
+　例えば、chg_pri 1c 02 と入力すると、BXレジスタに01chが、DXレジスタに
+　　　　　~~~~~~~~~~~~~
+02h がそれぞれ格納されてシステムコールが呼ばれ、02のタスクの優先度が01ch
+に変更されます。
 

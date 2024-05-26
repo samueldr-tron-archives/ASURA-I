@@ -4,63 +4,63 @@
 ;
 
 
-;@ƒŒƒWƒXƒ^ŠÖŒWˆê——•\
+;ã€€ãƒ¬ã‚¸ã‚¹ã‚¿é–¢ä¿‚ä¸€è¦§è¡¨
 ;
 ;
-;@Eƒ^ƒXƒN‹N“®ŽžiTA_ASMj‚ÌƒŒƒWƒXƒ^ó‘Ô
+;ã€€ãƒ»ã‚¿ã‚¹ã‚¯èµ·å‹•æ™‚ï¼ˆTA_ASMï¼‰ã®ãƒ¬ã‚¸ã‚¹ã‚¿çŠ¶æ…‹
 ;
-;@@@@‚`‚wstacd
-;@@@@‚b‚r‚c‚r‚d‚r
-;@@@@‚r‚rF‚r‚oASURA-I “à•”ƒXƒ^ƒbƒN
+;ã€€ã€€ã€€ã€€ï¼¡ï¼¸ï¼stacd
+;ã€€ã€€ã€€ã€€ï¼£ï¼³ï¼ï¼¤ï¼³ï¼ï¼¥ï¼³
+;ã€€ã€€ã€€ã€€ï¼³ï¼³ï¼šï¼³ï¼°ï¼ASURA-I å†…éƒ¨ã‚¹ã‚¿ãƒƒã‚¯
 ;
-;@Eƒ^ƒXƒN‹N“®ŽžiTA_HLNGj‚ÌƒŒƒWƒXƒ^ó‘Ô
+;ã€€ãƒ»ã‚¿ã‚¹ã‚¯èµ·å‹•æ™‚ï¼ˆTA_HLNGï¼‰ã®ãƒ¬ã‚¸ã‚¹ã‚¿çŠ¶æ…‹
 ;
-;@@@@‚`‚wstacd
-;@@@@‚r‚r‚c‚r‚d‚r
-;@@@@‚r‚rF‚r‚ocre_tsk ‚ÅŽw’è‚µ‚½stack
+;ã€€ã€€ã€€ã€€ï¼¡ï¼¸ï¼stacd
+;ã€€ã€€ã€€ã€€ï¼³ï¼³ï¼ï¼¤ï¼³ï¼ï¼¥ï¼³
+;ã€€ã€€ã€€ã€€ï¼³ï¼³ï¼šï¼³ï¼°ï¼cre_tsk ã§æŒ‡å®šã—ãŸstack
 ;
-;@Eƒ^ƒXƒNI—¹Žž‚ÌƒŒƒWƒXƒ^Žw’è
+;ã€€ãƒ»ã‚¿ã‚¹ã‚¯çµ‚äº†æ™‚ã®ãƒ¬ã‚¸ã‚¹ã‚¿æŒ‡å®š
 ;
-;@@@@ƒŒƒWƒXƒ^‚ÍŽQÆ‚³‚ê‚È‚¢iRETF‚Å‚à‰Âj
+;ã€€ã€€ã€€ã€€ãƒ¬ã‚¸ã‚¹ã‚¿ã¯å‚ç…§ã•ã‚Œãªã„ï¼ˆRETFã§ã‚‚å¯ï¼‰
 ;
-;@EƒVƒXƒeƒ€ƒR[ƒ‹ŒÄoŽžiret_int ˆÈŠOj‚ÌƒŒƒWƒXƒ^Žw’è
+;ã€€ãƒ»ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«å‘¼å‡ºæ™‚ï¼ˆret_int ä»¥å¤–ï¼‰ã®ãƒ¬ã‚¸ã‚¹ã‚¿æŒ‡å®š
 ;
-;@@@@‚`‚wƒVƒXƒeƒ€ƒR[ƒ‹”Ô†
-;@@@@‚a‚w”Ä—pƒpƒ‰ƒ[ƒ^
-;@@@@‚b‚wiƒ^ƒCƒ€ƒAƒEƒgj@^–¢ŽÀ‘•
-;@@@@‚c‚w‚h‚c
-;@@@@‚d‚rF‚r‚hƒpƒPƒbƒgƒAƒhƒŒƒX
-;@@@@‚c‚hƒtƒ‰ƒOƒpƒ^[ƒ“
+;ã€€ã€€ã€€ã€€ï¼¡ï¼¸ï¼ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ç•ªå·
+;ã€€ã€€ã€€ã€€ï¼¢ï¼¸ï¼æ±Žç”¨ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+;ã€€ã€€ã€€ã€€ï¼£ï¼¸ï¼ï¼ˆã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆï¼‰ã€€ï¼æœªå®Ÿè£…
+;ã€€ã€€ã€€ã€€ï¼¤ï¼¸ï¼ï¼©ï¼¤
+;ã€€ã€€ã€€ã€€ï¼¥ï¼³ï¼šï¼³ï¼©ï¼ãƒ‘ã‚±ãƒƒãƒˆã‚¢ãƒ‰ãƒ¬ã‚¹
+;ã€€ã€€ã€€ã€€ï¼¤ï¼©ï¼ãƒ•ãƒ©ã‚°ãƒ‘ã‚¿ãƒ¼ãƒ³
 ;
-;@Eret_int ŒÄoŽž‚ÌƒŒƒWƒXƒ^Žw’è
+;ã€€ãƒ»ret_int å‘¼å‡ºæ™‚ã®ãƒ¬ã‚¸ã‚¹ã‚¿æŒ‡å®š
 ;
-;@@@@‚b‚rF‚h‚o‚Æƒtƒ‰ƒO‚ðœ‚­‘SƒŒƒWƒXƒ^‚ðAŠ„‚èž‚Ýƒnƒ“ƒhƒ‰‹N“®Žž‚Ì
-;@@@ó‘Ô‚É•œ‹Œ‚·‚é
+;ã€€ã€€ã€€ã€€ï¼£ï¼³ï¼šï¼©ï¼°ã¨ãƒ•ãƒ©ã‚°ã‚’é™¤ãå…¨ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’ã€å‰²ã‚Šè¾¼ã¿ãƒãƒ³ãƒ‰ãƒ©èµ·å‹•æ™‚ã®
+;ã€€ã€€ã€€çŠ¶æ…‹ã«å¾©æ—§ã™ã‚‹
 ;
 
 
 
-	;ƒGƒ‰[ƒR[ƒh
+	;ã‚¨ãƒ©ãƒ¼ã‚³ãƒ¼ãƒ‰
 	;
-	;ƒVƒXƒeƒ€ƒR[ƒ‹”­sŒãA‚`‚wƒŒƒWƒXƒ^‚É•Ô‚³‚ê‚é
+	;ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ç™ºè¡Œå¾Œã€ï¼¡ï¼¸ãƒ¬ã‚¸ã‚¹ã‚¿ã«è¿”ã•ã‚Œã‚‹
 
-e_ok	equ	0	;³íI—¹
-e_nospt	equ	-17	;ƒVƒXƒeƒ€ƒR[ƒ‹”Ô†‚ÌˆÙí
-e_rsfn	equ	-20	;@@@V
-e_rsatr	equ	-24	;cre_??? ‚â def_int ‚Å ???atr ‚ªˆÙí
-e_par	equ	-33	;”Ä—pƒpƒ‰ƒ[ƒ^‚ªˆÙí
-e_id	equ	-35	;???id‚ª”ÍˆÍŠO
-e_noexs	equ	-52	;???id‚ª‘¶Ý‚µ‚È‚¢i–¢¶¬^Šùíœj
-e_obj	equ	-63	;???id‚Ìó‘Ô‚Éˆá”½iƒ^ƒXƒNó‘Ô^ƒtƒ‰ƒO‘®«ˆá”½j
-e_ctx	equ	-69	;ƒRƒ“ƒeƒLƒXƒgó‘Ôˆá”½iŠ„‚èž‚Ý^ƒfƒBƒXƒpƒbƒ`‹ÖŽ~ó‘Ôj
-e_qovr	equ	-73	;ƒJƒEƒ“ƒ^‚âƒLƒ…[‚ªƒI[ƒo[ƒtƒ[
-e_dlt	equ	-81	;‘Ò‚¿ó‘Ô‚Å???id‚ªíœ‚³‚ê‚½
-e_tmout	equ	-85	;ƒ|[ƒŠƒ“ƒO‚ÉŽ¸”s^iƒ^ƒCƒ€ƒAƒEƒgj
-e_rlwai	equ	-86	;‘Ò‚¿ó‘Ô‚Årel_wai‚³‚ê‚½
+e_ok	equ	0	;æ­£å¸¸çµ‚äº†
+e_nospt	equ	-17	;ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ç•ªå·ã®ç•°å¸¸
+e_rsfn	equ	-20	;ã€€ã€€ã€€ã€ƒ
+e_rsatr	equ	-24	;cre_??? ã‚„ def_int ã§ ???atr ãŒç•°å¸¸
+e_par	equ	-33	;æ±Žç”¨ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãŒç•°å¸¸
+e_id	equ	-35	;???idãŒç¯„å›²å¤–
+e_noexs	equ	-52	;???idãŒå­˜åœ¨ã—ãªã„ï¼ˆæœªç”Ÿæˆï¼æ—¢å‰Šé™¤ï¼‰
+e_obj	equ	-63	;???idã®çŠ¶æ…‹ã«é•åï¼ˆã‚¿ã‚¹ã‚¯çŠ¶æ…‹ï¼ãƒ•ãƒ©ã‚°å±žæ€§é•åï¼‰
+e_ctx	equ	-69	;ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆçŠ¶æ…‹é•åï¼ˆå‰²ã‚Šè¾¼ã¿ï¼ãƒ‡ã‚£ã‚¹ãƒ‘ãƒƒãƒç¦æ­¢çŠ¶æ…‹ï¼‰
+e_qovr	equ	-73	;ã‚«ã‚¦ãƒ³ã‚¿ã‚„ã‚­ãƒ¥ãƒ¼ãŒã‚ªãƒ¼ãƒãƒ¼ãƒ•ãƒ­ãƒ¼
+e_dlt	equ	-81	;å¾…ã¡çŠ¶æ…‹ã§???idãŒå‰Šé™¤ã•ã‚ŒãŸ
+e_tmout	equ	-85	;ãƒãƒ¼ãƒªãƒ³ã‚°ã«å¤±æ•—ï¼ï¼ˆã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆï¼‰
+e_rlwai	equ	-86	;å¾…ã¡çŠ¶æ…‹ã§rel_waiã•ã‚ŒãŸ
 
 
 
-	;‚»‚Ì‘¼’è”
+	;ãã®ä»–å®šæ•°
 
 ta_asm	equ	0
 ta_hlng	equ	1
@@ -88,15 +88,15 @@ twf_clr	equ	1
 
 
 
-	;\‘¢‘Ì
-	;pk_t1	pk_ctsk <?,?,1,task1,?,10h,,200h,?>	;‚Ì‚æ‚¤‚ÉŽg—p‚·‚é
+	;æ§‹é€ ä½“
+	;pk_t1	pk_ctsk <?,?,1,task1,?,10h,,200h,?>	;ã®ã‚ˆã†ã«ä½¿ç”¨ã™ã‚‹
 
-pk_dmy	struc		;‹¤’Ê—v‘f–¼‚ðŽg—p‚·‚é‚½‚ß‚Ìƒ_ƒ~[\‘¢‘Ì
+pk_dmy	struc		;å…±é€šè¦ç´ åã‚’ä½¿ç”¨ã™ã‚‹ãŸã‚ã®ãƒ€ãƒŸãƒ¼æ§‹é€ ä½“
 exinf1	dw	-1
 exinf2	dw	-1
 wtsk	dw	?
 	dw	?
-unuid	dw	?	;–¢Žg—p‚h‚c
+unuid	dw	?	;æœªä½¿ç”¨ï¼©ï¼¤
 itskpri	dw	?
 pk_dmy	ends
 
@@ -107,15 +107,15 @@ tskatr	dw	0	;ta_asm | ta_hlng
 o_task	dw	?
 s_task	dw	?
 	dw	?	;itskpri
-	dw	?	;–¢Žg—p
-o_stack	dw	?	;ta_hlng‚Ì‚Ý—LŒø
-s_stack	dw	?	;@@@V
+	dw	?	;æœªä½¿ç”¨
+o_stack	dw	?	;ta_hlngã®ã¿æœ‰åŠ¹
+s_stack	dw	?	;ã€€ã€€ã€€ã€ƒ
 pk_ctsk	ends
 
 pk_csem	struc
 	dw	-1	;exinf1
 	dw	-1	;exinf2
-sematr	dw	0	;ta_tfifo‚Ì‚Ý
+sematr	dw	0	;ta_tfifoã®ã¿
 isemcnt	dw	?
 pk_csem	ends
 
@@ -182,16 +182,16 @@ pk_rmbx	struc
 	dw	?	;exinf1
 	dw	?	;exinf2
 	dw	?	;wtsk
-msgcnt	dw	?	;’…MƒƒbƒZ[ƒW”
+msgcnt	dw	?	;ç€ä¿¡ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æ•°
 	dw	?	;unuid
 o_pk_msg	dw	?
 s_pk_msg	dw	?
-mbxfre	dw	?	;ƒ[ƒ‹ƒ{ƒbƒNƒX‹ó‚«—e—Ê
+mbxfre	dw	?	;ãƒ¡ãƒ¼ãƒ«ãƒœãƒƒã‚¯ã‚¹ç©ºãå®¹é‡
 pk_rmbx	ends
 
 
 
-	;‚`‚r‚t‚q‚`|‚hí’“ƒ`ƒFƒbƒNƒ}ƒNƒ
+	;ï¼¡ï¼³ï¼µï¼²ï¼¡âˆ’ï¼©å¸¸é§ãƒã‚§ãƒƒã‚¯ãƒžã‚¯ãƒ­
 
 chk_ai	macro	error
 	xor	AX,AX
@@ -214,10 +214,10 @@ chk_ai	macro	error
 
 
 
-	;ƒVƒXƒeƒ€ƒR[ƒ‹ƒ}ƒNƒ
+	;ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ãƒžã‚¯ãƒ­
 	;
-	;???_???@‚ÌŒ`Ž®‚ÍAƒVƒXƒeƒ€ƒR[ƒ‹”Ô†‚ðƒZƒbƒg‚·‚é‚¾‚¯
-	;???_???_i@‚ÌŒ`Ž®‚ÍAƒpƒ‰ƒ[ƒ^‚ÌƒŒƒWƒXƒ^ƒZƒbƒg‚àŠÜ‚Þ
+	;???_???ã€€ã®å½¢å¼ã¯ã€ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«ç•ªå·ã‚’ã‚»ãƒƒãƒˆã™ã‚‹ã ã‘
+	;???_???_iã€€ã®å½¢å¼ã¯ã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ãƒ¬ã‚¸ã‚¹ã‚¿ã‚»ãƒƒãƒˆã‚‚å«ã‚€
 
 cre_tsk	macro
 	mov	AX,0ffefh

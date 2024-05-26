@@ -4,7 +4,7 @@
 ;Copyright(c) Mineyuki Kimoto 1994
 ;
 
-	;³‹tƒŠƒ“ƒN‚Ì®‡‚Æd•¡‚ğƒ`ƒFƒbƒN
+	;æ­£é€†ãƒªãƒ³ã‚¯ã®æ•´åˆã¨é‡è¤‡ã‚’ãƒã‚§ãƒƒã‚¯
 	;entry : BX = 0~0ffh
 	;exit  : BX as next link
 nxt_lnk	macro	lnk_fb, lnk_dbl
@@ -18,8 +18,8 @@ nxt_lnk	macro	lnk_fb, lnk_dbl
 	or	AH,AH
 	jnz	&lnk_dbl
 	endm
-	;BLƒŒƒWƒXƒ^‚ªƒZƒ}ƒtƒH‚ÌƒLƒ…[ƒGƒ“ƒg
-	;ƒŠ‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é
+	;BLãƒ¬ã‚¸ã‚¹ã‚¿ãŒã‚»ãƒãƒ•ã‚©ã®ã‚­ãƒ¥ãƒ¼ã‚¨ãƒ³ãƒˆ
+	;ãƒªã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
 chk_sem	macro	err
 	mov	AH,BL
 	not	AH
@@ -27,8 +27,8 @@ chk_sem	macro	err
 	jnz	&err
 	endm
 
-	;BLƒŒƒWƒXƒ^‚ªƒtƒ‰ƒO‚ÌƒLƒ…[ƒGƒ“ƒgƒŠ
-	;‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é
+	;BLãƒ¬ã‚¸ã‚¹ã‚¿ãŒãƒ•ãƒ©ã‚°ã®ã‚­ãƒ¥ãƒ¼ã‚¨ãƒ³ãƒˆãƒª
+	;ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
 chk_flg	macro	err
 	mov	AH,BL
 	xor	AH,82h
@@ -36,8 +36,8 @@ chk_flg	macro	err
 	jnz	&err
 	endm
 
-	;BLƒŒƒWƒXƒ^‚ªƒ[ƒ‹‚ÌƒLƒ…[ƒGƒ“ƒgƒŠ
-	;‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚·‚é
+	;BLãƒ¬ã‚¸ã‚¹ã‚¿ãŒãƒ¡ãƒ¼ãƒ«ã®ã‚­ãƒ¥ãƒ¼ã‚¨ãƒ³ãƒˆãƒª
+	;ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã™ã‚‹
 chk_mbx	macro	err
 	mov	AH,BL
 	xor	AH,2
@@ -45,7 +45,7 @@ chk_mbx	macro	err
 	jnz	&err
 	endm
 
-	;³‹tƒŠƒ“ƒN‚Ì®‡‚Æd•¡‚ğƒ`ƒFƒbƒN
+	;æ­£é€†ãƒªãƒ³ã‚¯ã®æ•´åˆã¨é‡è¤‡ã‚’ãƒã‚§ãƒƒã‚¯
 	;entry : BX = 100h~1ffh
 	;exit  : BX as next link
 nxt_mlq	macro	lnk_fb, lnk_dbl
@@ -61,7 +61,7 @@ nxt_mlq	macro	lnk_fb, lnk_dbl
 	endm
 
 
-	;‘®«ƒGƒ‰[ŒŸo—p
+	;å±æ€§ã‚¨ãƒ©ãƒ¼æ¤œå‡ºç”¨
 sta_ate	equ	0ech	;not 16h
 tsk_ate	equ	0feh	;not 1
 flg_ate	equ	0f7h	;not 8
@@ -220,7 +220,7 @@ s_chk01:
 	
 	mov	BL,87h		;semid = 1
 s_chk02:
-	mov	CL,BL		;ˆê‰ñ–Ú
+	mov	CL,BL		;ä¸€å›ç›®
 	nxt_lnk	s_chk_e1, s_chk03
 
 	test	BL,DL
@@ -230,12 +230,12 @@ s_chk02:
 	jnz	s_chk_e3
 	jmp	s_chk05
 s_chk03:
-				;”ñ‘¶İƒŠƒ“ƒN
+				;éå­˜åœ¨ãƒªãƒ³ã‚¯
 	chk_sem	s_chk_e3		;not SEM
 
 	mov	BL,CL
 	jmp	s_chk05
-s_chk04:				;‘Ò‚¿ƒ^ƒXƒN‚ª‚ ‚éê‡
+s_chk04:				;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒã‚ã‚‹å ´åˆ
 	nxt_lnk	s_chk_e1, s_chk_e2
 
 	test	BL,DL
@@ -252,7 +252,7 @@ s_chk05:
 	jnc	s_chk02		;not overflow
 	jmp	s_chk07
 s_chk06:
-				;‘Ò‚¿ƒ^ƒXƒN‚ÌŒŸ¸
+				;å¾…ã¡ã‚¿ã‚¹ã‚¯ã®æ¤œæŸ»
 	mov	AX,[BX+300h]	;check wupcnt
 	or	AH,AH
 	jz	s_chk_e5
@@ -296,7 +296,7 @@ f_chk01:
 	
 	mov	BL,86h		;flgid = 1
 f_chk02:
-	mov	CL,BL		;ˆê‰ñ–Ú
+	mov	CL,BL		;ä¸€å›ç›®
 	nxt_lnk	f_chk_e1, f_chk03
 
 	test	BL,DL		;DL = 3
@@ -309,12 +309,12 @@ f_chk02:
 	jnz	f_chk_e4		;flgatr error
 	jmp	f_chk05
 f_chk03:
-				;”ñ‘¶İƒŠƒ“ƒN
+				;éå­˜åœ¨ãƒªãƒ³ã‚¯
 	chk_flg	f_chk_e3		;not FLG
 
 	mov	BL,CL
 	jmp	f_chk05
-f_chk04:				;‘Ò‚¿ƒ^ƒXƒN‚ª‚ ‚éê‡
+f_chk04:				;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒã‚ã‚‹å ´åˆ
 	nxt_lnk	f_chk_e1, f_chk_e2
 
 	test	BL,DL
@@ -329,7 +329,7 @@ f_chk05:
 	jnc	f_chk02		;not overflow
 	jmp	f_chk07
 f_chk06:
-				;‘Ò‚¿ƒ^ƒXƒN‚ÌŒŸ¸
+				;å¾…ã¡ã‚¿ã‚¹ã‚¯ã®æ¤œæŸ»
 	mov	AX,[BX+300h]	;check wupcnt
 	or	AH,AH
 	jz	f_chk_e5
@@ -378,7 +378,7 @@ m_chk01:
 	
 	mov	BL,6		;mbxid = 1
 m_chk02:
-	mov	CL,BL		;ˆê‰ñ–Ú
+	mov	CL,BL		;ä¸€å›ç›®
 	nxt_lnk	m_chk_e1, m_chk03
 
 	test	BL,DL		;DL = 3
@@ -388,12 +388,12 @@ m_chk02:
 	jnz	m_chk_e3
 	jmp	m_chk05
 m_chk03:
-			;”ñ‘¶İƒŠƒ“ƒN
+			;éå­˜åœ¨ãƒªãƒ³ã‚¯
 	chk_mbx	m_chk_e3		;not MBX
 
 	mov	BL,CL
 	jmp	m_chk05
-m_chk04:				;‘Ò‚¿ƒ^ƒXƒN‚ª‚ ‚éê‡
+m_chk04:				;å¾…ã¡ã‚¿ã‚¹ã‚¯ãŒã‚ã‚‹å ´åˆ
 	nxt_lnk	m_chk_e1, m_chk_e2
 
 	test	BL,DL		;DL=3
@@ -402,8 +402,8 @@ m_chk04:				;‘Ò‚¿ƒ^ƒXƒN‚ª‚ ‚éê‡
 	cmp	BL,CL		;link must be mbx_link
 	jnz	m_chk_e3
 	
-	cmp	[BX+800h],BL	;ƒoƒbƒNƒŠƒ“ƒN‚ÍŒã‚Ì
-				;ƒ`ƒFƒbƒN‚Å‚n‚j
+	cmp	[BX+800h],BL	;ãƒãƒƒã‚¯ãƒªãƒ³ã‚¯ã¯å¾Œã®
+				;ãƒã‚§ãƒƒã‚¯ã§ï¼¯ï¼«
 	jnz	m_chk_e7
 m_chk05:
 	add	BL,DH		;DH=4
@@ -411,7 +411,7 @@ m_chk05:
 	jz	m_chk02		;not overflow
 	jmp	m_chk07
 m_chk06:
-				;‘Ò‚¿ƒ^ƒXƒN‚ÌŒŸ¸
+				;å¾…ã¡ã‚¿ã‚¹ã‚¯ã®æ¤œæŸ»
 	mov	AX,[BX+300h]	;check wupcnt
 	or	AH,AH
 	jz	m_chk_e5
