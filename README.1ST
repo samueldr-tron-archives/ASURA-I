@@ -1,41 +1,41 @@
 
-$B!!#A#S#U#R#A!]#I!!(B1.01.00
+　ＡＳＵＲＡ−Ｉ　1.01.00
          Copyright (C) Mineyuki Kimoto 1994
 
-$B!!(BASURA-I $B$O!"(BMS-DOS$BHFMQ$N>oCs7?(BITRON $B$G$9!#&L(BITRON 3.0 $B;EMM$K=`5r$7$F(B
-$B$$$^$9!#%5%]!<%H$7$F$$$k%7%9%F%`%3!<%k$O<!$NDL$j$G$9!#(B
+　ASURA-I は、MS-DOS汎用の常駐型ITRON です。μITRON 3.0 仕様に準拠して
+います。サポートしているシステムコールは次の通りです。
 
-$B%?%9%/4IM}!!!!(B cre_tsk$B!!(Bdel_tsk
-$B!!!!!!!!!!!!!!(B sta_tsk$B!!(Bext_tsk$B!!(Bexd_tsk$B!!(Bter_tsk
-$B!!!!!!!!!!!!!!(B dis_dsp$B!!(Bena_dsp
-$B!!!!!!!!!!!!!!(B chg_pri$B!!(Brot_rdq
-$B!!!!!!!!!!!!!!(B get_tid$B!!(Bref_tsk
-$B!!!!!!!!!!!!!!(B rel_wai
-$B%?%9%/IUB0F14|(B slp_tsk$B!!(Bwup_tsk$B!!(Bcan_wup
-$B!!!!!!!!!!!!!!(B sus_tsk$B!!(Brsm_tsk frsm_tsk
-$BF14|DL?.!!!!!!(B cre_sem$B!!(Bdel_sem$B!!(Bsig_sem$B!!(Bwai_sem preq_sem  ref_sem
-$B!!!!!!!!!!!!!!(B cre_flg$B!!(Bdel_flg$B!!(Bclr_flg$B!!(Bset_flg$B!!(Bwai_flg$B!!(Bpol_flg  ref_flg
-$B!!!!!!!!!!!!!!(B cre_mbx  del_mbx  snd_msg  rcv_msg prcv_msg  ref_mbx
-$B3d$j9~$_4IM}!!(B def_int (loc_cpu$B!!(Bunl_cpu  ret_int)
-$B%7%9%F%`4IM}!!(B get_ver
+タスク管理　　 cre_tsk　del_tsk
+　　　　　　　 sta_tsk　ext_tsk　exd_tsk　ter_tsk
+　　　　　　　 dis_dsp　ena_dsp
+　　　　　　　 chg_pri　rot_rdq
+　　　　　　　 get_tid　ref_tsk
+　　　　　　　 rel_wai
+タスク付属同期 slp_tsk　wup_tsk　can_wup
+　　　　　　　 sus_tsk　rsm_tsk frsm_tsk
+同期通信　　　 cre_sem　del_sem　sig_sem　wai_sem preq_sem  ref_sem
+　　　　　　　 cre_flg　del_flg　clr_flg　set_flg　wai_flg　pol_flg  ref_flg
+　　　　　　　 cre_mbx  del_mbx  snd_msg  rcv_msg prcv_msg  ref_mbx
+割り込み管理　 def_int (loc_cpu　unl_cpu  ret_int)
+システム管理　 get_ver
 
-$B!!$J$*!"%I%-%e%a%s%H$N@0Hw$,BgI}$KCY$l$F$*$j$^$9!#FbMF$H$7$F$OI,MW:G>.(B
-$B8B$N$3$H$7$+=q$$$F$"$j$^$;$s$N$G!"%7%9%F%`%3!<%k$N?6$kIq$$Ey$K$D$-$^$7(B
-$B$F$O&L(BITRON 3.0 $BI8=`%O%s%I%V%C%/Ey$r$4Mw2<$5$$!#(B
+　なお、ドキュメントの整備が大幅に遅れております。内容としては必要最小
+限のことしか書いてありませんので、システムコールの振る舞い等につきまし
+てはμITRON 3.0 標準ハンドブック等をご覧下さい。
 
-$B!!%"!<%+%$%VFb$N(BREADME.DOC$B$KMxMQ>e$NCm0U$,=q$$$F$"$j$^$9$N$G!"I,$:FI$s(B
-$B$G2<$5$$!#(B
+　アーカイブ内のREADME.DOCに利用上の注意が書いてありますので、必ず読ん
+で下さい。
 
-$B!!<ALd$O(Bjba03350@niftyserve.or.jp $B08$G$*4j$$$7$?$$$N$G$9$,!"(BNIFTY-Serve 
-$B$N%a!<%k%\%C%/%9MFNL$,(B50$BDL$7$+$"$j$^$;$s$N$G!"%a!<%k%\%C%/%9$,%Q%s%/$9(B
-$B$k2DG=@-$,$"$k$+$bCN$l$^$;$s!#(B
+　質問はjba03350@niftyserve.or.jp 宛でお願いしたいのですが、NIFTY-Serve 
+のメールボックス容量が50通しかありませんので、メールボックスがパンクす
+る可能性があるかも知れません。
 
-$B!!:G8e$K$J$j$^$7$?$,!"(Bftp $B$G$N8x3+$K$"$?$j!"Hs>o$KB?$/$NJ}$N$46(NO$r$$(B
-$B$?$@$-$^$7$?!#Cf$G$bFC$K!"Aa0pEDBg3X>pJs2J3X8&5f650i%;%s%?!<$NCfB<$5$s!"(B
-$BEl5~Bg3XM}3XIt$N9bED@h@8$K$OHs>o$K$*@$OC$K$J$j$^$7$?!#$3$N>l$r$*<Z$j$7(B
-$B$F$*Ni$r?=$7>e$2$?$$$H;W$$$^$9!#(B
+　最後になりましたが、ftp での公開にあたり、非常に多くの方のご協力をい
+ただきました。中でも特に、早稲田大学情報科学研究教育センターの中村さん、
+東京大学理学部の高田先生には非常にお世話になりました。この場をお借りし
+てお礼を申し上げたいと思います。
 
-        1994.09.20                                           $BLZ85(B $BJvG7(B
+        1994.09.20                                           木元 峰之
                                              NIFTY-Serve ID:JBA03350
                                Internet ID:jba03350@niftyserve.or.jp
 
