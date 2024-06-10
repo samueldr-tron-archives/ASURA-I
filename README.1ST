@@ -1,0 +1,42 @@
+
+　ＡＳＵＲＡ−Ｉ　1.01.00
+         Copyright (C) Mineyuki Kimoto 1994
+
+　ASURA-I は、MS-DOS汎用の常駐型ITRON です。μITRON 3.0 仕様に準拠して
+います。サポートしているシステムコールは次の通りです。
+
+タスク管理　　 cre_tsk　del_tsk
+　　　　　　　 sta_tsk　ext_tsk　exd_tsk　ter_tsk
+　　　　　　　 dis_dsp　ena_dsp
+　　　　　　　 chg_pri　rot_rdq
+　　　　　　　 get_tid　ref_tsk
+　　　　　　　 rel_wai
+タスク付属同期 slp_tsk　wup_tsk　can_wup
+　　　　　　　 sus_tsk　rsm_tsk frsm_tsk
+同期通信　　　 cre_sem　del_sem　sig_sem　wai_sem preq_sem  ref_sem
+　　　　　　　 cre_flg　del_flg　clr_flg　set_flg　wai_flg　pol_flg  ref_flg
+　　　　　　　 cre_mbx  del_mbx  snd_msg  rcv_msg prcv_msg  ref_mbx
+割り込み管理　 def_int (loc_cpu　unl_cpu  ret_int)
+システム管理　 get_ver
+
+　なお、ドキュメントの整備が大幅に遅れております。内容としては必要最小
+限のことしか書いてありませんので、システムコールの振る舞い等につきまし
+てはμITRON 3.0 標準ハンドブック等をご覧下さい。
+
+　アーカイブ内のREADME.DOCに利用上の注意が書いてありますので、必ず読ん
+で下さい。
+
+　質問はjba03350@niftyserve.or.jp 宛でお願いしたいのですが、NIFTY-Serve 
+のメールボックス容量が50通しかありませんので、メールボックスがパンクす
+る可能性があるかも知れません。
+
+　最後になりましたが、ftp での公開にあたり、非常に多くの方のご協力をい
+ただきました。中でも特に、早稲田大学情報科学研究教育センターの中村さん、
+東京大学理学部の高田先生には非常にお世話になりました。この場をお借りし
+てお礼を申し上げたいと思います。
+
+        1994.09.20                                           木元 峰之
+                                             NIFTY-Serve ID:JBA03350
+                               Internet ID:jba03350@niftyserve.or.jp
+
+
